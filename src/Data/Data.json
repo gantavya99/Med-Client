@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "category": "Psychedelics",
+    "drug": "Volcano Mushrooms",
+    "description": "Drugs for pain relief",
+    "price": "$12",
+    "available": "50",
+    "image": "https://hips.hearstapps.com/vidthumb/images/gettyimages-1392913510-6410b76f57a4f.jpg?crop=1.00xw:0.846xh;0,0.0433xh"
+  },
+  {
+    "id": 2,
+    "category": "Psychedelics",
+    "drug": "Volcano Mushrooms",
+    "description": "Drugs for pain relief",
+    "price": "$12",
+    "available": "50",
+    "image": "https://hips.hearstapps.com/vidthumb/images/gettyimages-1392913510-6410b76f57a4f.jpg?crop=1.00xw:0.846xh;0,0.0433xh"
+  },
+  {
+    "id": 3,
+    "category": "Psychedelics",
+    "drug": "Volcano Mushrooms",
+    "description": "Drugs for pain relief",
+    "price": "$12",
+    "available": "50",
+    "image": "https://hips.hearstapps.com/vidthumb/images/gettyimages-1392913510-6410b76f57a4f.jpg?crop=1.00xw:0.846xh;0,0.0433xh"
+  },
+  {
+    "id": 4,
+    "category": "Psychedelics",
+    "drug": "Volcano Mushrooms",
+    "description": "Drugs for pain relief",
+    "price": "$12",
+    "available": "50",
+    "image": "https://hips.hearstapps.com/vidthumb/images/gettyimages-1392913510-6410b76f57a4f.jpg?crop=1.00xw:0.846xh;0,0.0433xh"
+  },
+  {
+    "id": 5,
+    "category": "Psychedelics",
+    "drug": "Volcano Mushrooms",
+    "description": "Drugs for pain relief",
+    "price": "$12",
+    "available": "50",
+    "image": "https://hips.hearstapps.com/vidthumb/images/gettyimages-1392913510-6410b76f57a4f.jpg?crop=1.00xw:0.846xh;0,0.0433xh"
+  }
+  
+
+]
