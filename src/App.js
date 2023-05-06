@@ -38,7 +38,7 @@ function App() {
       )}
       {!isLoading && <Home />}
     
-      This is spartaaa
+      This is spartaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!!!
       
     </div>
    
