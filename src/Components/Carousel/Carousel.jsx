@@ -1,19 +1,31 @@
-import React from "react";
+import {React,useEffect,useState} from "react";
+import axios from "axios";
 import Product from "../Product/Product";
-import data from "../../Data/Data.json";
+// import data from "../../Data/Data.json";
 import data1 from "../../Data/NewData.json";
 const Carousel = () => {
+  const[data,setData]=useState();
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/products')
+      .then(response => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
     <div>
       <h1 className="pt-2 text-3xl font-semibold">Products</h1>
       <div className="flex mt-5 justify-center flex-wrap">
-        {data.map((item) => (
+        {data&&data.map((item) => (
           <Product
             imageUrl={item.image}
             title={item.drug}
             price={item.price}
-            description={item.description}
+            description={item.desc}
           />
         ))}
       </div>

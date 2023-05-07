@@ -1,11 +1,13 @@
 import Home from "./Components/Home/Home";
 import React, { useState, useEffect } from 'react';
 import { TailSpin } from 'react-loader-spinner'
-
+import axios from "axios";
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
 
+ 
+  
   useEffect(() => {
     // Simulate a delay for demonstration purposes
     setTimeout(() => {
@@ -14,7 +16,7 @@ function App() {
   }, []);
   
   const AppContainer = {
-    maxWidth:"1100px",
+    minWidth:"600px",
     margin:"0 auto"
   }
   return (
@@ -37,8 +39,6 @@ function App() {
         
       )}
       {!isLoading && <Home />}
-    
-      This is spartaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!!!
       
     </div>
    
