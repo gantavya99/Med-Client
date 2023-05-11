@@ -37,7 +37,7 @@ const Carousel = () => {
     <p className="text-lg font-semibold">Express Delivery</p>
   </div>
   <div className="border-r pr-4">
-    <p className="text-lg font-semibold">24*7 Support</p>
+    <p className="text-lg font-semibold">24*7 Support Available</p>
   </div>
   <div>
     <p className="text-lg font-semibold">Certified Medications</p>
