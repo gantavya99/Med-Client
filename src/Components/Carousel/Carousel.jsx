@@ -23,9 +23,11 @@ const Carousel = () => {
         {data&&data.map((item) => (
           <Product
             imageUrl={item.image}
-            title={item.drug}
+            title={item.title}
             price={item.price}
-            description={item.desc}
+            description={item.description}
+            discount={item.Discount}
+            category={item.category}
           />
         ))}
       </div>

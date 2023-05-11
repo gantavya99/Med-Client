@@ -106,6 +106,7 @@ const Nav = () => {
       </div>
 
       <hr></hr>
+      <div className="hero-bg"></div>
     </>
   );
 };

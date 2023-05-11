@@ -16,7 +16,6 @@ const Home = () => {
         <Nav />
         <div className='mx-12'>
         <Hero />
-        <Tags />
         <Category />
         <Carousel />
         <Question />

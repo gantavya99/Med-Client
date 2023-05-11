@@ -1,6 +1,7 @@
 import { React, useState } from "react";
+import Category from "../Category/Category";
 
-const Product = ({ imageUrl, title, description, price }) => {
+const Product = ({ imageUrl, title, description, price,discount,category }) => {
   const [counter, setCounter] = useState(0);
 
   const handleIncrement = () => {
@@ -21,11 +22,12 @@ const Product = ({ imageUrl, title, description, price }) => {
       />
       <div className="p-2">
         <h3 className="text-lg font-medium">{title}</h3>
-        <div className="flex">
+        <p className="text-xs float-right text-gray-400">({category})</p>
+        <div className="flex mt-2">
           <div>
-            <p className="font-medium text-2xl">{price}</p>
+            <p className="font-medium text-2xl">${price}</p>
           </div>
-          <div className="text-[#f47779] mt-2 ml-2 text-sm">13% OFF</div>
+          <div className="text-[#f47779] mt-2 ml-2 text-sm">{discount}%</div>
         </div>
 
         <div className="flex items-center justify-between mt-4">
