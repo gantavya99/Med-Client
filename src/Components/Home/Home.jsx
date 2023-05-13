@@ -5,10 +5,11 @@ import Hero from '../Hero/Hero';
 import Footer from '../Footer/Footer';
 import data from "../../Data/Data.json";
 import Product from '../Product/Product';
-import Carousel from "../Carousel/Carousel";
 import Question from '../Question/Question';
 import Category from '../Category/Category';
 import Tags from '../Tags/Tags';
+import ProductByCategory from '../ProductByCategory/ProductByCategory';
+import NewProducts from '../NewProducts/NewProducts';
 const Home = () => {
   return (
     <div>
@@ -16,8 +17,10 @@ const Home = () => {
         <Nav />
         <div className='mx-12'>
         <Hero />
+        <Tags />
         <Category />
-        <Carousel />
+        <ProductByCategory />
+        <NewProducts />
         <Question />
         </div>
         
