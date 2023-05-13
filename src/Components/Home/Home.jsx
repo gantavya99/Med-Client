@@ -10,6 +10,7 @@ import Category from '../Category/Category';
 import Tags from '../Tags/Tags';
 import ProductByCategory from '../ProductByCategory/ProductByCategory';
 import NewProducts from '../NewProducts/NewProducts';
+import Features from '../Features/Features';
 const Home = () => {
   return (
     <div>
@@ -20,6 +21,7 @@ const Home = () => {
         <Tags />
         <Category />
         <ProductByCategory />
+        <Features />
         <NewProducts />
         <Question />
         </div>
