@@ -35,7 +35,7 @@ const Footer = () => {
               <Link href="/" className="text-gray-400 hover:text-[#10847e] py-1 sm:py-0 sm:mr-4">
                 More...
               </Link>
-              
+
             </nav>
           </div>
           <div className="w-full sm:w-auto mb-4 sm:mb-0">

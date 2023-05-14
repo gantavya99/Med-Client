@@ -51,8 +51,9 @@ const scrollRight = () => {
         <div id="content" className="carousel flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
         <div className="flex mt-5 justify-center">
           
-          {uniqueProducts.map((item) => (
+          {uniqueProducts.map((item,key) => (
             <Product
+            key={key}
               imageUrl={item.image}
               title={item.title}
               price={item.price}
