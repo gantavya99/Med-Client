@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./views/Home/Home";
 import Category from "./views/Category/Category";
 import ProductPage from "./views/ProductPage/ProductPage";
-
+import Cart from "./views/Cart/Cart"
 
 const MedPharmRoutes = () => {
   return (
@@ -13,6 +13,7 @@ const MedPharmRoutes = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="/:category" element={<Category />} />
         <Route path="/product/vicodin" element={<ProductPage />} />
+        <Route path ="/cart" element={<Cart />}/>
         </Routes>
 
         </Suspense>
