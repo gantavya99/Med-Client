@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { useParams,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../../Components/Header/Header';
+import Sidebar from '../../Components/Sidebar/Sidebar';
 const Category = () => {
     const [data, setData] = useState([]);
     const params = useParams();
@@ -19,7 +20,7 @@ const Category = () => {
   
   return (
     <div>
-        
+        <Sidebar />
     </div>
   )
 }
