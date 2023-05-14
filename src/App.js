@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
+import Headroom from "react-headroom";
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -27,12 +28,13 @@ function App() {
   }
   return (
     <Router>
-
-    
-   
       <div className="AppContainer">
-      <Header />
-      <Nav />
+        <Headroom>
+        <Header />
+      
+        </Headroom>
+        <Nav />
+      
       {isLoading && (
        <div className="fixed inset-0 flex justify-center items-center">
        <TailSpin

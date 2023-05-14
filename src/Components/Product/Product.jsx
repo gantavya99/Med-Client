@@ -14,7 +14,7 @@ const Product = ({ imageUrl, title, description, price,discount,category }) => {
     }
   };
   return (
-    <div className="w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+    <div className=" cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
       <img
         className="w-full h-36 object-cover border-b border-gray-200 hover:opacity-90 transition-opacity"
         src={imageUrl}

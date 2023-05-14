@@ -16,7 +16,7 @@ const Header = () => {
       };
 
   return (
-    <nav className="flex flex-row justify-between p-2 mt-2">
+    <nav className="flex flex-row justify-between p-2 pt-3 bg-white">
       <div className="flex items-center px-10">
         <img className="h-8 mr-5" src={logo} alt="MedPharma Logo" />
         <span className="flex items-center cursor-pointer">
