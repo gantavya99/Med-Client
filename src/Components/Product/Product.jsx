@@ -1,8 +1,19 @@
-import { React, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Category from "../Category/Category";
 
-const Product = ({ imageUrl, title, description, price,discount,category }) => {
+const Product = ({ imageUrl, title, description, price, discount, category }) => {
+  const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 0);
+
+    // Clean up timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleIncrement = () => {
     setCounter(counter + 1);
@@ -13,8 +24,23 @@ const Product = ({ imageUrl, title, description, price,discount,category }) => {
       setCounter(counter - 1);
     }
   };
+
+  if (loading) {
+    // Render skeleton loader while data is being fetched
+    return (
+      <div className="w-52 m-7 bg-gray-200 rounded-lg p-4 animate-pulse">
+        <div className="w-full h-36 bg-gray-100"></div>
+        <div className="mt-4 space-y-2">
+          <div className="h-4 bg-gray-100"></div>
+          <div className="h-4 bg-gray-100 w-2/3"></div>
+          <div className="h-4 bg-gray-100 w-1/3"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className=" cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+    <div className="cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
       <img
         className="w-full h-36 object-cover border-b border-gray-200 hover:opacity-90 transition-opacity"
         src={imageUrl}
@@ -31,7 +57,7 @@ const Product = ({ imageUrl, title, description, price,discount,category }) => {
         </div>
 
         <div className="flex items-center justify-between mt-4">
-          <button className=" text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out">
+          <button className="text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out">
             Add to Cart
           </button>
           <div className="flex items-center border rounded">
