@@ -31,9 +31,9 @@ function App() {
       <div className="AppContainer">
         <Headroom>
         <Header />
-      
-        </Headroom>
         <Nav />
+        </Headroom>
+        
       
       {isLoading && (
        <div className="fixed inset-0 flex justify-center items-center">

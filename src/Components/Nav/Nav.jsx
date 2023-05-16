@@ -20,7 +20,7 @@ const navigate = useNavigate();
   return (
     <>
     <div className="bg-white">
-    <hr className="mt-3"></hr>
+    <hr className=""></hr>
       <div className="z-50 flex justify-center text-sm cursor-pointer p-1">
         <div onClick={()=>navigate("/")} className="mx-2 p-2 hover:text-[#10847e]">Home</div>
         <div className="relative mx- p-2 hover:text-[#10847e]">
