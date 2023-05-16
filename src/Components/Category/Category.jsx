@@ -5,9 +5,11 @@ import Chocolate from "../../assets/Category/Chocolate.svg";
 import Green from "../../assets/Category/Green.svg";
 import Grey from "../../assets/Category/Grey.svg";
 import Pink from "../../assets/Category/Pink.svg";
+import { useNavigate } from "react-router-dom";
 const CategoryList = () => {
+  const navigate = useNavigate();
   return (
-    <div className="cursor-pointer">
+    <div onClick={()=>navigate("/products")} className="cursor-pointer">
       <h1 className="font-semibold text-3xl">Categories</h1>
       <div className="flex justify-around p-6 mt-5">
         <div className="flex flex-col items-center">

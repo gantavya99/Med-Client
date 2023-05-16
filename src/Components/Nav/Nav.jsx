@@ -1,6 +1,7 @@
 import React from "react";
 import "./Nav.css";
 import { ClassNames } from "@emotion/react";
+import { useNavigate } from "react-router-dom";
 const Nav = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   let timeoutId;
@@ -15,13 +16,13 @@ const Nav = () => {
       setMenuOpen(false);
     }, 500); // Change the delay time as needed (in milliseconds)
   };
-
+const navigate = useNavigate();
   return (
     <>
     <div className="bg-white">
     <hr className="mt-3"></hr>
       <div className="z-50 flex justify-center text-sm cursor-pointer p-1">
-        <div className="mx-2 p-2 hover:text-[#10847e]">Home</div>
+        <div onClick={()=>navigate("/")} className="mx-2 p-2 hover:text-[#10847e]">Home</div>
         <div className="relative mx- p-2 hover:text-[#10847e]">
           <span
             onMouseEnter={() => handleMouseEnter()}

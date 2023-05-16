@@ -3,9 +3,10 @@ import axios from "axios";
 import Product from "../Product/Product";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import "../../"
+import { useNavigate } from "react-router-dom";
 const ProductByCategory = () => {
   const [data, setData] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("https://med-server-production.up.railway.app/api/products/all")
@@ -38,7 +39,7 @@ const scrollRight = () => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative" onClick={()=>navigate("/product/vicodin")}>
         <h1 className="pt-2 text-3xl font-semibold">Products</h1>
         <div className="absolute right-0 top-5 ">
         <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white">

@@ -7,6 +7,7 @@ const ProductPage = () => {
   const [show2, setShow2] = useState(false);
   const [data, setData] = useState([]);
   const params = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`http://localhost:8080/api/products/:${params.category}`)
@@ -122,6 +123,7 @@ const ProductPage = () => {
 						hover:bg-[#256c68]
                         
 					"
+          onClick={()=>navigate("/cart")}
         >
           Add to Cart
         </button>

@@ -6,7 +6,9 @@ import ProductByCategory from '../../Components/ProductByCategory/ProductByCateg
 import NewProducts from '../../Components/NewProducts/NewProducts';
 import Features from '../../Components/Features/Features';
 import CategoryList from '../../Components/Category/Category';
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
+  
   return (
     <div>
         
