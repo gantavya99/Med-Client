@@ -8,9 +8,10 @@ import { CiDiscount1 } from "react-icons/ci";
 import { AiFillCaretDown } from "react-icons/ai";
 import DrawerExample from "../Drawers/DrawerExample";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-
+    const navigate = useNavigate();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const items = useSelector((state)=>state.cart);
     const handleDrawerClose = () => {
@@ -51,7 +52,7 @@ const Header = () => {
           <CiDiscount1 className="mr-2 mt-1" />
           Offers
         </span>
-        <span className="flex inline mr-6 nav-items-right">
+        <span onClick={()=>navigate("/cart")} className="flex inline mr-6 nav-items-right">
           <BsCart2 className="mr-2 mt-1" />
           Cart({items&&items.length})
         </span>

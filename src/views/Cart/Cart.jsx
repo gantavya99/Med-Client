@@ -1,81 +1,77 @@
-import React, { useState } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import React from 'react'
+import ProductCart from '../../Components/ProductCart/ProductCart'
+import { useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-  // Product details
-  const product = {
-    id: 1,
-    name: "Vicodin",
-    description: "Category - Opioids",
-    price: 5.0,
-    image:
-      "https://images.unsplash.com/photo-1588718889344-f7bd7a565d20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-  };
 
-  // Quantity state
-  const [quantity, setQuantity] = useState(1);
-
-  // Handlers for quantity buttons
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  return (
-    <div className="flex flex-col justify-between md:flex-row md:max-w-6xl mx-auto mt-8 mb-28 px-4 md:px-0">
-      {/* Product details section */}
-      <div className="md:w-2/3 md:pr-8 border-2 rounded-lg p-4 m-4">
-        <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
-        <div className="flex">
-          <img src={product.image} alt={product.name} className="mb-4 w-44" />
-          <p className="mx-3">
-            Hydrocodone/paracetamol is the combination of the pain medications
-            hydrocodone and paracetamol. It is used to treat moderate to severe
-            pain. It is taken by mouth. Recreational use is common in the United
-            States. Common side effects include dizziness, sleepiness,
-            constipation, and vomiting.
-          </p>
+const product = useSelector(state=>state.cart);
+const navigate = useNavigate();
+return (
+<div className="bg-gray-100 p-4">
+  <div className="container mx-auto mt-10">
+    <div className="flex shadow-md my-10">
+      <div className="w-3/4 bg-white px-10 py-10">
+        <div className="flex justify-between border-b pb-8">
+          <h1 className="font-semibold text-2xl">Shopping Cart</h1>
+          <h2 className="font-semibold text-2xl">{product.length} Items</h2>
         </div>
+        <div className="flex mt-10 mb-5">
+          <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+        </div>
+        {
+          product.map((item,key)=>(
+            <ProductCart
+            key={item.id}
+            image={item.image}
+            title={item.title}
+            category={item.category}
+            price={item.price}
+            />
+          ))
+        }
+        
 
-        <p className="text-gray-700">{product.description}</p>
+        <a className="flex font-semibold text-indigo-600 text-sm mt-10">
+      
+          <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
+          Continue Shopping
+        </a>
       </div>
-
-      {/* Order summary section */}
-      <div className="md:w-1/3 bg-gray-50 p-4 rounded-md mt-4 md:mt-0">
-        <h2 className="text-2xl font-bold mb-4">Order Summary</h2>
-        <div className="flex justify-between items-center border-b border-gray-400 pb-2">
-          <p className="text-gray-700">{product.name}</p>
-          <p className="text-gray-700">{product.price}</p>
+      <div id="summary" className="w-1/4 px-8 py-10">
+        <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+        <div className="flex justify-between mt-10 mb-5">
+          <span className="font-semibold text-sm uppercase">Items 3</span>
+          <span className="font-semibold text-sm">590$</span>
         </div>
-        <div className="flex justify-between items-center pt-2">
-          <div className="flex items-center">
-            <button
-              className="bg-gray-200 text-gray-700 p-2 rounded-full hover:bg-gray-300"
-              onClick={handleDecrement}
-            >
-              <FaMinus />
-            </button>
-            <p className="text-gray-700 mx-2">{quantity}</p>
-            <button
-              className="bg-gray-200 text-gray-700 p-2 rounded-full hover:bg-gray-300"
-              onClick={handleIncrement}
-            >
-              <FaPlus />
-            </button>
+        <div>
+          <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
+          <select className="block p-2 text-gray-600 w-full text-sm">
+            <option>Standard shipping - $10.00</option>
+          </select>
+        </div>
+        <div className="py-10">
+          <label for="promo" className="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
+          <input type="text" id="promo" placeholder="Enter your code" className="p-2 text-sm w-full"/>
+        </div>
+        <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+        <div className="border-t mt-8">
+          <div className="flex font-semibold justify-between py-6 text-sm uppercase">
+            <span>Total cost</span>
+            <span>$600</span>
           </div>
-          <p className="text-gray-700">{product.price * quantity}</p>
+          <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
-        <button className="bg-[#10847e] text-white px-4 py-2 rounded-md mt-4 hover:bg-green-600">
-          Checkout
-        </button>
       </div>
-    </div>
-  );
-};
 
-export default Cart;
+    </div>
+  </div>
+</div>
+
+  )
+}
+
+export default Cart

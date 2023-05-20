@@ -28,13 +28,14 @@ const Category = () => {
         
         {data.map((item,key) => (
             <Product
-                key={key}
+              key={key}
               imageUrl={item.image}
               title={item.title}
               price={item.price}
               description={item.description}
               discount={item.Discount}
               category={item.category}
+              product={item}
             />
           ))}
         </div>
