@@ -1,14 +1,14 @@
 import Home from "./views/Home/Home";
 import React, { useState, useEffect } from 'react';
 import { TailSpin } from 'react-loader-spinner'
-import axios from "axios";
-import { Suspense } from "react";
+import store from "./store/store"
 import MedPharmRoutes from "./Routes";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Headroom from "react-headroom";
+import {Provider} from "react-redux";
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +27,9 @@ function App() {
     margin:"0 auto"
   }
   return (
-    <Router>
+    <div>
+    <Provider store={store}>
+ <BrowserRouter>
       <div className="AppContainer">
         <Headroom>
         <Header />
@@ -52,7 +54,10 @@ function App() {
       {!isLoading && <MedPharmRoutes />}
     </div>
     <Footer />
-    </Router>
+    </BrowserRouter>
+    </Provider>
+    </div>
+   
     
   );
 }
