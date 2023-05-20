@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Product from "../Product/Product";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import "../../"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import add from "../../store/CartSlice"
+
+
+
+
 const ProductByCategory = () => {
   const [data, setData] = useState([]);
-  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("https://med-server-production.up.railway.app/api/products/all")
@@ -19,7 +23,9 @@ const ProductByCategory = () => {
       });
   }, []);
 
-  const scrollLeft = () => {
+
+
+const scrollLeft = () => {
     document.getElementById("content").scrollLeft -= 400;
 }
 const scrollRight = () => {
@@ -39,7 +45,7 @@ const scrollRight = () => {
 
   return (
     <>
-      <div className="relative" onClick={()=>navigate("/product/vicodin")}>
+      <div className="relative">
         <h1 className="pt-2 text-3xl font-semibold">Products</h1>
         <div className="absolute right-0 top-5 ">
         <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white">
@@ -52,15 +58,16 @@ const scrollRight = () => {
         <div id="content" className="carousel flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
         <div className="flex mt-5 justify-center">
           
-          {uniqueProducts.map((item,key) => (
+          {uniqueProducts.map((product,key) => (
             <Product
-            key={key}
-              imageUrl={item.image}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-              discount={item.Discount}
-              category={item.category}
+              key={key}
+              imageUrl={product.image}
+              title={product.title}
+              price={product.price}
+              description={product.description}
+              discount={product.Discount}
+              category={product.category}
+              product={product}
             />
           ))}
         

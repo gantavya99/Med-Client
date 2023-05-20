@@ -27,10 +27,10 @@ function App() {
     margin:"0 auto"
   }
   return (
-    <div>
+    <div className="AppContainer">
     <Provider store={store}>
- <BrowserRouter>
-      <div className="AppContainer">
+      <BrowserRouter>
+      <div>
         <Headroom>
         <Header />
         <Nav />

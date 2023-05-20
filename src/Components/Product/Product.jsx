@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Category from "../Category/Category";
-import {useNavigate} from 'react-router-dom';
-const Product = ({ imageUrl, title, description, price, discount, category }) => {
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { add } from "../../store/CartSlice";
+
+const Product = ({
+  imageUrl,
+  title,
+  description,
+  price,
+  discount,
+  category,
+  product,
+}) => {
   const [loading, setLoading] = useState(true);
-  const [counter, setCounter] = useState(0);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
     // Simulate loading delay
     const timer = setTimeout(() => {
@@ -14,16 +26,6 @@ const Product = ({ imageUrl, title, description, price, discount, category }) =>
     // Clean up timer on component unmount
     return () => clearTimeout(timer);
   }, []);
-
-  const handleIncrement = () => {
-    setCounter(counter + 1);
-  };
-
-  const handleDecrement = () => {
-    if (counter > 0) {
-      setCounter(counter - 1);
-    }
-  };
 
   if (loading) {
     // Render skeleton loader while data is being fetched
@@ -39,8 +41,12 @@ const Product = ({ imageUrl, title, description, price, discount, category }) =>
     );
   }
 
+  const handleAddToCart = () => {
+    dispatch(add(product));
+  };
+
   return (
-    <div onClick={()=>navigate("/product/vicodin")} className="cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+    <div className="cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
       <img
         className="w-full h-36 object-cover border-b border-gray-200 hover:opacity-90 transition-opacity"
         src={imageUrl}
@@ -53,28 +59,16 @@ const Product = ({ imageUrl, title, description, price, discount, category }) =>
           <div>
             <p className="font-medium text-2xl">${price}</p>
           </div>
-          <div className="text-[#f47779] mt-2 ml-2 text-sm">{discount}%</div>
+          <div className="text-[#f47779] mt-2 ml-2 text-sm">{discount}% OFF</div>
         </div>
 
         <div className="flex items-center justify-between mt-4">
-          <button className="text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out">
+          <button
+            onClick={handleAddToCart}
+            className="text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out"
+          >
             Add to Cart
           </button>
-          <div className="flex items-center border rounded">
-            <button
-              onClick={handleDecrement}
-              className="px-1 bg-gray-200 hover:bg-gray-300 transition duration-300 ease-in-out"
-            >
-              -
-            </button>
-            <span className="px-1 text-sm">{counter}</span>
-            <button
-              onClick={handleIncrement}
-              className="px-1 bg-gray-200 hover:bg-gray-300 transition duration-300 ease-in-out"
-            >
-              +
-            </button>
-          </div>
         </div>
       </div>
     </div>

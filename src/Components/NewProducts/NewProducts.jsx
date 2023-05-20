@@ -19,10 +19,10 @@ const NewProducts = () => {
   }, []);
 
   const scrollLeft = () => {
-    document.getElementById("content").scrollLeft -= 400;
+    document.getElementById("content-new").scrollLeft -= 400;
 }
 const scrollRight = () => {
-    document.getElementById("content").scrollLeft += 400;
+    document.getElementById("content-new").scrollLeft += 400;
 }
 
 
@@ -48,7 +48,7 @@ const scrollRight = () => {
           <FiChevronRight />
         </button>
       </div>
-        <div id="content" className="carousel flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
+        <div id="content-new" className="carousel flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide">
         <div className="flex mt-5 justify-center">
           
           {uniqueProducts.map((item,key) => (

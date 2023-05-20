@@ -7,10 +7,12 @@ import { BsCart2 } from "react-icons/bs";
 import { CiDiscount1 } from "react-icons/ci";
 import { AiFillCaretDown } from "react-icons/ai";
 import DrawerExample from "../Drawers/DrawerExample";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const items = useSelector((state)=>state.cart);
     const handleDrawerClose = () => {
         setIsDrawerOpen(false);
       };
@@ -51,7 +53,7 @@ const Header = () => {
         </span>
         <span className="flex inline mr-6 nav-items-right">
           <BsCart2 className="mr-2 mt-1" />
-          Cart
+          Cart({items&&items.length})
         </span>
       </div>
     <DrawerExample onClose={handleDrawerClose} isOpen={isDrawerOpen}/>

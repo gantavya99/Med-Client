@@ -1,6 +1,6 @@
 const { createSlice } = require('@reduxjs/toolkit');
 
-const {cartSlice} = createSlice({
+const cartSlice = createSlice({
     name:'cart',
     initialState:[],
     reducers:{
