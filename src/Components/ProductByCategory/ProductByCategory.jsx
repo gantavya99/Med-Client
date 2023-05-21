@@ -3,10 +3,8 @@ import axios from "axios";
 import Product from "../Product/Product";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import add from "../../store/CartSlice"
-
-
 
 
 const ProductByCategory = () => {
@@ -16,7 +14,6 @@ const ProductByCategory = () => {
       .get("https://med-server-production.up.railway.app/api/products/all")
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -68,8 +65,11 @@ const scrollRight = () => {
               discount={product.Discount}
               category={product.category}
               product={product}
+              
             />
-          ))}
+            
+          ))
+          }
         
       </div>
         </div>

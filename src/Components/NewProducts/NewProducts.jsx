@@ -11,7 +11,7 @@ const NewProducts = () => {
       .get("https://med-server-production.up.railway.app/api/products/all")
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Category from "../Category/Category";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../store/CartSlice";
 
 const Product = ({
@@ -15,7 +15,13 @@ const Product = ({
 }) => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart);
   const navigate = useNavigate();
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
+  const cartTextChange = () => {
+    setIsAddedToCart(true);
+  };
 
   useEffect(() => {
     // Simulate loading delay
@@ -26,6 +32,10 @@ const Product = ({
     // Clean up timer on component unmount
     return () => clearTimeout(timer);
   }, []);
+
+  const handleAddToCart = () => {
+    dispatch(add(product));
+  };
 
   if (loading) {
     // Render skeleton loader while data is being fetched
@@ -41,12 +51,11 @@ const Product = ({
     );
   }
 
-  const handleAddToCart = () => {
-    dispatch(add(product));
-  };
-
   return (
-    <div className="cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+    <div
+      className="cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden 
+    shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105"
+    >
       <img
         className="w-full h-36 object-cover border-b border-gray-200 hover:opacity-90 transition-opacity"
         src={imageUrl}
@@ -59,15 +68,21 @@ const Product = ({
           <div>
             <p className="font-medium text-2xl">${price}</p>
           </div>
-          <div className="text-[#f47779] mt-2 ml-2 text-sm">{discount}% OFF</div>
+          <div className="text-[#f47779] mt-2 ml-2 text-sm whitespace-nowrap">
+            {discount}% OFF
+          </div>
         </div>
 
         <div className="flex items-center justify-between mt-4">
           <button
-            onClick={handleAddToCart}
+            onClick={() => {
+              handleAddToCart();
+              cartTextChange();
+            }}
             className="text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out"
+            disabled={isAddedToCart}
           >
-            Add to Cart
+            {isAddedToCart ? "Added to cart" : "Add to cart"}
           </button>
         </div>
       </div>
