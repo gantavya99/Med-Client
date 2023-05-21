@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import ProductCart from '../../Components/ProductCart/ProductCart';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import ProductCart from "../../Components/ProductCart/ProductCart";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import {
   incrementQuantity,
   decrementQuantity,
   remove,
-} from '../../store/CartSlice';
+} from "../../store/CartSlice";
 
 const Cart = () => {
   const products = useSelector((state) => state.cart);
@@ -62,37 +62,51 @@ const Cart = () => {
                 title={item.title}
                 category={item.category}
                 price={item.price}
-                quantity={item.quantity}
+                quantity={item.quantity} // Pass the quantity prop
                 incrementQuantity={() => incrementProductQuantity(item.id)}
                 decrementQuantity={() => decrementProductQuantity(item.id)}
-                removeProduct={() => removeProduct(item.id)}
+                removeProduct={() => removeProduct(item.id)} // Pass the removeProduct prop
               />
             ))}
 
             <a
-              onClick={() => navigate('/product')}
+              onClick={() => navigate("/product")}
               className="flex font-semibold text-indigo-600 text-sm mt-10 cursor-pointer"
             >
-              <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
-                <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
+              <svg
+                className="fill-current mr-2 text-indigo-600 w-4"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"
+                />
               </svg>
               Continue Shopping
             </a>
           </div>
           <div id="summary" className="w-1/4 px-8 py-10">
-            <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+            <h1 className="font-semibold text-2xl border-b pb-8">
+              Order Summary
+            </h1>
             <div className="flex justify-between mt-10 mb-5">
-              <span className="font-semibold text-sm uppercase">Items {products.length}</span>
+              <span className="font-semibold text-sm uppercase">
+                Items {products.length}
+              </span>
               <span className="font-semibold text-sm">{totalAmount}$</span>
             </div>
             <div>
-              <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
+              <label className="font-medium inline-block mb-3 text-sm uppercase">
+                Shipping
+              </label>
               <select className="block p-2 text-gray-600 w-full text-sm">
                 <option>Standard shipping - ${standardShippingCost}</option>
               </select>
             </div>
             <div className="py-10">
-              <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase">
+              <label
+                htmlFor="promo"
+                className="font-semibold inline-block mb-3 text-sm uppercase"
+              >
                 Promo Code
               </label>
               <input
