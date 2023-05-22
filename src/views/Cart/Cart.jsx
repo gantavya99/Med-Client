@@ -3,11 +3,11 @@ import ProductCart from "../../Components/ProductCart/ProductCart";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  addToCart,
-  clearCart,
-  decreaseCart,
-  getTotals,
-  removeFromCart,
+  add,
+  decrementQuantity,
+  incrementQuantity,
+  remove,
+  updateQuantity,
 } from "../../store/CartSlice";
 
 const Cart = () => {
@@ -15,19 +15,21 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [standardShippingCost, setStandardShippingCost] = useState(10);
-
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-  };
-  const handleDecreaseCart = (product) => {
-    dispatch(decreaseCart(product));
-  };
-  const handleRemoveFromCart = (product) => {
-    dispatch(removeFromCart(product));
-  };
-  const handleClearCart = () => {
-    dispatch(clearCart());
-  };
+  const [quantity,setQuantity] = useState(1);
+  
+  const increaseQuantity = () =>
+  {
+    // setQuantity(quantity+1);
+    dispatch(incrementQuantity())
+  }
+  const decreaseQuantity = () =>
+  {
+    if(quantity>1)
+    dispatch(decrementQuantity())
+    // setQuantity(quantity-1);
+  }
+ 
+ 
 
  
 
@@ -38,7 +40,7 @@ const Cart = () => {
           <div className="w-3/4 bg-white px-10 py-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-              <h2 className="font-semibold text-2xl">{products.cartItems.length} Items</h2>
+              <h2 className="font-semibold text-2xl">{products.length} Items</h2>
             </div>
             <div className="flex mt-10 mb-5">
               <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
@@ -55,17 +57,17 @@ const Cart = () => {
               </h3>
             </div>
 
-            {products.cartItems &&products.cartItems.map((item) => (
+            {products&&products.map((item) => (
               <ProductCart
                 key={item.id}
                 image={item.image}
                 title={item.title}
                 category={item.category}
                 price={item.price}
-                quantity={item.quantity} // Pass the quantity prop
-                incrementQuantity={() => handleAddToCart(item)}
-                decrementQuantity={() => handleDecreaseCart(item)}
-                removeProduct={() => handleRemoveFromCart(item)} // Pass the removeProduct prop
+                quantity={quantity} 
+                incrementQuantity={increaseQuantity}
+                decrementQuantity={decreaseQuantity}// Pass the quantity prop
+                // Pass the removeProduct prop
               />
             ))}
 
@@ -90,9 +92,9 @@ const Cart = () => {
             </h1>
             <div className="flex justify-between mt-10 mb-5">
               <span className="font-semibold text-sm uppercase">
-                Items {products.cartItems.length}
+                Items {products.length}
               </span>
-              <span className="font-semibold text-sm">{products.cartTotalAmount}$</span>
+              <span className="font-semibold text-sm">100$</span>
             </div>
             <div>
               <label className="font-medium inline-block mb-3 text-sm uppercase">
@@ -122,7 +124,7 @@ const Cart = () => {
             <div className="border-t mt-8">
               <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total cost</span>
-                <span>{products.cartTotalAmount + standardShippingCost}$</span>
+                <span>{100 + standardShippingCost}$</span>
               </div>
               <button className="bg-[#10847e] font-semibold hover:bg-[#1d6966] rounded-lg py-3 text-sm text-white uppercase w-full">
                 Checkout
