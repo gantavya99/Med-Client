@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Category from "../Category/Category";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { add } from "../../store/CartSlice";
 
 const Product = ({
   imageUrl,
@@ -12,10 +10,9 @@ const Product = ({
   discount,
   category,
   product,
+  handleAddToCart
 }) => {
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
@@ -33,8 +30,9 @@ const Product = ({
     return () => clearTimeout(timer);
   }, []);
 
-  const handleAddToCart = () => {
-    dispatch(add(product));
+  const handleAddToCartClick = () => {
+    handleAddToCart(product);
+    cartTextChange();
   };
 
   if (loading) {
@@ -75,10 +73,7 @@ const Product = ({
 
         <div className="flex items-center justify-between mt-4">
           <button
-            onClick={() => {
-              handleAddToCart();
-              cartTextChange();
-            }}
+            onClick={handleAddToCartClick}
             className="text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out"
             disabled={isAddedToCart}
           >

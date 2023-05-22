@@ -9,6 +9,7 @@ import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Headroom from "react-headroom";
 import {Provider} from "react-redux";
+import { ToastContainer } from "react-toastify";
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +31,7 @@ function App() {
     <div className="AppContainer">
     <Provider store={store}>
       <BrowserRouter>
+      <ToastContainer />
       <div>
         <Headroom>
         <Header />
