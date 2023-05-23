@@ -172,7 +172,7 @@ const Cart = () => {
   };
   return (
     <div className="cart-container">
-      <h2>Shopping Cart</h2>
+      <h3>Shopping Cart</h3>
       {cart.cartItems.length === 0 ? (
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
@@ -208,10 +208,10 @@ const Cart = () => {
               cart.cartItems.map((cartItem) => (
                 <div className="cart-item" key={cartItem.id}>
                   <div className="cart-product">
-                    <img src={cartItem.image} alt={cartItem.name} />
+                    <img src={cartItem.image} alt={cartItem.description} />
                     <div>
-                      <h3>{cartItem.name}</h3>
-                      <p>{cartItem.desc}</p>
+                      <h3 className="text-lg text-xl font-extrabold">{cartItem.title}</h3>
+                      <p className="text-sm text-slate-600">{cartItem.category}</p>
                       <button onClick={() => handleRemoveFromCart(cartItem)}>
                         Remove
                       </button>

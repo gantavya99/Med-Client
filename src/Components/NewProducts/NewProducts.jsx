@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Product from "../Product/Product";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import "../../"
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../store/CartSlice";
 const NewProducts = () => {
   const [data, setData] = useState([]);
 
@@ -25,6 +27,11 @@ const scrollRight = () => {
     document.getElementById("content-new").scrollLeft += 400;
 }
 
+const dispatch = useDispatch();
+  
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
 
   // Create a new array of products with only the first product for each unique category
   const uniqueProducts = Object.values(
@@ -60,6 +67,8 @@ const scrollRight = () => {
               description={item.description}
               discount={item.Discount}
               category={item.category}
+              product={item}
+              handleAddToCart={()=>handleAddToCart(item)}
             />
           ))}
         

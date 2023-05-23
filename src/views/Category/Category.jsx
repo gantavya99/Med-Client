@@ -4,20 +4,29 @@ import axios from 'axios';
 import Header from '../../Components/Header/Header';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Product from '../../Components/Product/Product';
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../store/CartSlice";
 const Category = () => {
     const [data, setData] = useState([]);
-    const params = useParams();
+    
+    const {category} = useParams();
     useEffect(() => {
       axios
-        .get(`https://med-server-production.up.railway.app/api/products/all`)
+        .get(`https://med-server-production.up.railway.app/api/products/all?category=${category}`)
         .then((response) => {
           setData(response.data);
-            
+            console.log(data);
         })
         .catch((error) => {
           console.log(error);
         });
     }, []);
+
+    const dispatch = useDispatch();
+  
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
   
   return (
     <div className='flex pt-4'>
@@ -36,6 +45,7 @@ const Category = () => {
               discount={item.Discount}
               category={item.category}
               product={item}
+              handleAddToCart={()=>handleAddToCart(item)}
             />
           ))}
         </div>

@@ -66,9 +66,9 @@ const Product = ({
           <div>
             <p className="font-medium text-2xl">${price}</p>
           </div>
-          {/* <div className="text-[#f47779] mt-2 ml-2 text-sm whitespace-nowrap">
+          <div className="text-[#f47779] mt-2 ml-2 text-sm whitespace-nowrap">
             {discount}% OFF
-          </div> */}
+          </div>
         </div>
 
         <div className="flex items-center justify-between mt-4">

@@ -9,10 +9,10 @@ import { useNavigate } from "react-router-dom";
 const CategoryList = () => {
   const navigate = useNavigate();
   return (
-    <div onClick={()=>navigate("/products")} className="cursor-pointer">
+    <div className="cursor-pointer">
       <h1 className="font-semibold text-3xl">Categories</h1>
       <div className="flex justify-around p-6 mt-5">
-        <div className="flex flex-col items-center">
+        <div onClick={()=>navigate("/products/Opioids")} className="flex flex-col items-center">
           <img
             className="w-32 transition-transform duration-300 hover:scale-105"
             src={yellowCard}
@@ -20,7 +20,7 @@ const CategoryList = () => {
           />
           <p className="mt-2 text-center">Opioids</p>
         </div>
-        <div className="flex flex-col items-center">
+        <div onClick={()=>navigate("/products/Opioids")} className="flex flex-col items-center">
           <img
             className="w-32 transition-transform duration-300 hover:scale-105"
             src={Pink}
@@ -28,7 +28,7 @@ const CategoryList = () => {
           />
           <p className="mt-2 text-center">Psychedelics</p>
         </div>
-        <div className="flex flex-col items-center">
+        <div onClick={()=>navigate("/products/Cannabinoids")} className="flex flex-col items-center">
           <img
             className="w-32 transition-transform duration-300 hover:scale-105"
             src={Grey}
@@ -36,7 +36,7 @@ const CategoryList = () => {
           />
           <p className="mt-2 text-center">Cannabinoids</p>
         </div>
-        <div className="flex flex-col items-center">
+        <div onClick={()=>navigate("/products/Research Chemical")} className="flex flex-col items-center">
           <img
             className="w-32 transition-transform duration-300 hover:scale-105"
             src={Blue}
@@ -44,7 +44,7 @@ const CategoryList = () => {
           />
           <p className="mt-2 text-center">Research Chemical</p>
         </div>
-        <div className="flex flex-col items-center">
+        <div onClick={()=>navigate("/products/Weight Loss")} className="flex flex-col items-center">
           <img
             className="w-32 transition-transform duration-300 hover:scale-105"
             src={Green}
@@ -52,7 +52,7 @@ const CategoryList = () => {
           />
           <p className="mt-2 text-center">Weight Loss/Diabetes</p>
         </div>
-        <div className="flex flex-col items-center">
+        <div onClick={()=>navigate("/products/Gummies and Chocolates")} className="flex flex-col items-center">
           <img
             className="w-32 transition-transform duration-300 hover:scale-105"
             src={Chocolate}

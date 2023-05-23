@@ -11,7 +11,7 @@ const MedPharmRoutes = () => {
         <Suspense fallback={<div></div>}>
         <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/:category" element={<Category />} />
+        <Route path="/products/:category" element={<Category />} />
         <Route path="/product/vicodin" element={<ProductPage />} />
         <Route path ="/cart" element={<Cart />}/>
         </Routes>
