@@ -54,7 +54,7 @@ const Header = () => {
         </span>
         <span onClick={()=>navigate("/cart")} className="flex inline mr-6 nav-items-right">
           <BsCart2 className="mr-2 mt-1" />
-          Cart({items&&items.length})
+          Cart({items.cartItems&&items.cartItems.length})
         </span>
       </div>
     <DrawerExample onClose={handleDrawerClose} isOpen={isDrawerOpen}/>

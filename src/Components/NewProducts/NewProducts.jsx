@@ -60,7 +60,8 @@ const dispatch = useDispatch();
           
           {uniqueProducts.map((item,key) => (
             <Product
-            key={key}
+              id={item._id}
+              key={key}
               imageUrl={item.image}
               title={item.title}
               price={item.price}

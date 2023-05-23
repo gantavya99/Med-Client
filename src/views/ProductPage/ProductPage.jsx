@@ -17,7 +17,7 @@ const ProductPage = () => {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/products/${id}`)
+      .get(`https://med-server-production.up.railway.app/api/products/${id}`)
       .then((response) => {
         setData(response.data);
         console.log(response.data);

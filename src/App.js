@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 import Headroom from "react-headroom";
 import {Provider} from "react-redux";
 import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -29,9 +30,13 @@ function App() {
   }
   return (
     <div className="AppContainer">
+      <Toaster
+  position="top-right"
+  reverseOrder={true}
+/>
     <Provider store={store}>
       <BrowserRouter>
-      <ToastContainer />
+    
       <div>
         <Headroom>
         <Header />
