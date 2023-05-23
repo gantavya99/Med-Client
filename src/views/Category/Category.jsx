@@ -37,6 +37,7 @@ const Category = () => {
         
         {data.map((item,key) => (
             <Product
+              id={item._id}
               key={key}
               imageUrl={item.image}
               title={item.title}
