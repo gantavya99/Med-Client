@@ -2,12 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../Components/Header/Header";
+import { useDispatch } from "react-redux";
+import {addToCart} from "../../store/CartSlice";
 const ProductPage = () => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [data, setData] = useState([]);
   const {id} = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
   useEffect(() => {
     axios
       .get(`http://localhost:8080/api/products/${id}`)
@@ -81,8 +88,8 @@ const ProductPage = () => {
           </h1>
         </div>
         <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-          <p className="text-base leading-4 text-gray-800">Quantity</p>
-          <div className="flex items-center justify-center">- +</div>
+          <p className="text-base leading-4 text-gray-800">Price</p>
+          <div className="flex items-center justify-center text-lg">${data.price}</div>
         </div>
         <div className="py-4 border-b border-gray-200 flex items-center justify-between">
           <p className="text-base leading-4 text-gray-800">Weight (in gms)</p>
@@ -121,7 +128,7 @@ const ProductPage = () => {
 						hover:bg-[#256c68]
                         
 					"
-          onClick={()=>navigate("/cart")}
+          onClick={()=>{navigate("/cart"); handleAddToCart(data)}}
         >
           Add to Cart
         </button>
@@ -138,7 +145,7 @@ const ProductPage = () => {
             Product Code: 8BN321AF2IF0NYA
           </p>
            <p className="text-base leading-4 mt-4 text-gray-600">
-            Other Names: Hydrocodone/acetaminophen, hydrocodone/APAP
+            All our products are certified and safe for consumption
           </p>
           {/* <p className="text-base leading-4 mt-4 text-gray-600">
             Height: 10 inches

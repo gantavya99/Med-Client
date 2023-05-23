@@ -20,7 +20,7 @@ const CategoryList = () => {
           />
           <p className="mt-2 text-center">Opioids</p>
         </div>
-        <div onClick={()=>navigate("/products/Opioids")} className="flex flex-col items-center">
+        <div onClick={()=>navigate("/products/Psychedelics")} className="flex flex-col items-center">
           <img
             className="w-32 transition-transform duration-300 hover:scale-105"
             src={Pink}

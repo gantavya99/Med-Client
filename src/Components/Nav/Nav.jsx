@@ -57,42 +57,42 @@ const navigate = useNavigate();
               aria-labelledby="options-menu"
             >
               <a
-                href="#"
+                onClick={()=>navigate("/products/Opioids")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Opioids
               </a>
               <a
-                href="#"
+                onClick={()=>navigate("/products/Psychedelics")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Psychedelics
               </a>
               <a
-                href="#"
+                onClick={()=>navigate("/products/Cannabinoids")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Cannabinoids
               </a>
               <a
-                href="#"
+                onClick={()=>navigate("/products/Research Chemical")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Research Chemical
               </a>
               <a
-                href="#"
+                onClick={()=>navigate("/products/Weight Loss")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Weight Loss/ diabetes
               </a>
               <a
-                href="#"
+                onClick={()=>navigate("/products/Gummies and Chocolates")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
