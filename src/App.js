@@ -9,7 +9,7 @@ import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Headroom from "react-headroom";
 import {Provider} from "react-redux";
-import { ToastContainer } from "react-toastify";
+
 import { Toaster } from "react-hot-toast";
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="AppContainer">
       <Toaster
-  position="top-right"
+  position="bottom-left"
   reverseOrder={true}
 />
     <Provider store={store}>
