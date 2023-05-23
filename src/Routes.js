@@ -12,7 +12,7 @@ const MedPharmRoutes = () => {
         <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/products/:category" element={<Category />} />
-        <Route path="/product/vicodin" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path ="/cart" element={<Cart />}/>
         </Routes>
         </Suspense>

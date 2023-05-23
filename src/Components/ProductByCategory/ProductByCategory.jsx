@@ -59,6 +59,7 @@ const ProductByCategory = () => {
           <div className="flex mt-5 justify-center">
             {uniqueProducts.map((product, key) => (
               <Product
+                id={product._id}
                 key={key}
                 imageUrl={product.image}
                 title={product.title}

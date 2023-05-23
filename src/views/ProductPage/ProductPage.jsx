@@ -6,11 +6,11 @@ const ProductPage = () => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [data, setData] = useState([]);
-  const params = useParams();
+  const {id} = useParams();
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/products/:${params.category}`)
+      .get(`http://localhost:8080/api/products/${id}`)
       .then((response) => {
         setData(response.data);
         console.log(response.data);
@@ -26,47 +26,45 @@ const ProductPage = () => {
         <img
           className="w-full"
           alt="pic of a medicine"
-          src="https://images.unsplash.com/photo-1588718889344-f7bd7a565d20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-        />
+          src={data.image} />
         <img
           className="mt-6 w-full"
           alt="pic of a medicine"
-          src="https://images.unsplash.com/photo-1588718889344-f7bd7a565d20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-        />
+          src={data.image} />
       </div>
       <div className="md:hidden">
         <img
           className="w-full"
-          alt="img of a girl posing"
-          src="https://i.ibb.co/QMdWfzX/component-image-one.png"
+          alt="pic of a medicine"
+          src={data.image}
         />
         <div className="flex items-center justify-between mt-3 space-x-4 md:space-x-0">
           <img
             alt="img-tag-one"
             className="md:w-48 md:h-48 w-full"
-            src="https://i.ibb.co/cYDrVGh/Rectangle-245.png"
+            src={data.image}
           />
           <img
             alt="img-tag-one"
             className="md:w-48 md:h-48 w-full"
-            src="https://i.ibb.co/f17NXrW/Rectangle-244.png"
+            src={data.image}
           />
           <img
             alt="img-tag-one"
             className="md:w-48 md:h-48 w-full"
-            src="https://i.ibb.co/cYDrVGh/Rectangle-245.png"
+            src={data.image}
           />
           <img
             alt="img-tag-one"
             className="md:w-48 md:h-48 w-full"
-            src="https://i.ibb.co/f17NXrW/Rectangle-244.png"
+            src={data.image}
           />
         </div>
       </div>
       <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
         <div className="border-b border-gray-200 pb-6">
           <p className="text-sm leading-none text-gray-600">
-            Category - Opioids
+            Category - {data.category}
           </p>
           <h1
             className="
@@ -79,7 +77,7 @@ const ProductPage = () => {
 							mt-2
 						"
           >
-            Vicodin
+            {data.title}
           </h1>
         </div>
         <div className="py-4 border-b border-gray-200 flex items-center justify-between">
@@ -129,11 +127,12 @@ const ProductPage = () => {
         </button>
         <div>
           <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 mt-7">
-            Hydrocodone/paracetamol is the combination of the pain medications
+            {/* Hydrocodone/paracetamol is the combination of the pain medications
             hydrocodone and paracetamol. It is used to treat moderate to severe
             pain. It is taken by mouth. Recreational use is common in the United
             States. Common side effects include dizziness, sleepiness,
-            constipation, and vomiting.
+            constipation, and vomiting. */}
+            {data.description}
           </p>
           <p className="text-base leading-4 mt-7 text-gray-600">
             Product Code: 8BN321AF2IF0NYA

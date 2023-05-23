@@ -3,6 +3,7 @@ import Category from "../Category/Category";
 import { useNavigate } from "react-router-dom";
 
 const Product = ({
+  id,
   imageUrl,
   title,
   description,
@@ -10,7 +11,7 @@ const Product = ({
   discount,
   category,
   product,
-  handleAddToCart
+  handleAddToCart,
 }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -33,6 +34,10 @@ const Product = ({
   const handleAddToCartClick = () => {
     handleAddToCart(product);
     cartTextChange();
+  };
+
+  const handleClick = () => {
+    navigate(`/product/${id}`);
   };
 
   if (loading) {
@@ -58,6 +63,7 @@ const Product = ({
         className="w-full h-36 object-cover border-b border-gray-200 hover:opacity-90 transition-opacity"
         src={imageUrl}
         alt={description}
+        onClick={handleClick}
       />
       <div className="p-2">
         <h3 className="text-lg font-medium">{title}</h3>
@@ -75,7 +81,7 @@ const Product = ({
           <button
             onClick={handleAddToCartClick}
             className="text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out"
-            // disabled={isAddedToCart}
+            disabled={isAddedToCart}
           >
             {isAddedToCart ? "Added to cart" : "Add to cart"}
           </button>
