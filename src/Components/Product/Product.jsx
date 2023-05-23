@@ -66,16 +66,16 @@ const Product = ({
           <div>
             <p className="font-medium text-2xl">${price}</p>
           </div>
-          <div className="text-[#f47779] mt-2 ml-2 text-sm whitespace-nowrap">
+          {/* <div className="text-[#f47779] mt-2 ml-2 text-sm whitespace-nowrap">
             {discount}% OFF
-          </div>
+          </div> */}
         </div>
 
         <div className="flex items-center justify-between mt-4">
           <button
             onClick={handleAddToCartClick}
             className="text-sm bg-[#10847e] text-white py-2 px-4 rounded hover:bg-[#1c706c] transition duration-300 ease-in-out"
-            disabled={isAddedToCart}
+            // disabled={isAddedToCart}
           >
             {isAddedToCart ? "Added to cart" : "Add to cart"}
           </button>
