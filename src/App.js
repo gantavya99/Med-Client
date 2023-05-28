@@ -29,7 +29,7 @@ function App() {
     margin:"0 auto"
   }
   return (
-    <div className="AppContainer">
+    <div className="AppContainer max-w-7xl mx-auto">
       <Toaster
   position="bottom-left"
   reverseOrder={true}
