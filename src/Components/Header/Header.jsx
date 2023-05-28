@@ -174,7 +174,7 @@ const Header = () => {
             Cart
           </a>
           <a
-            href="#"
+            onClick={()=>navigate("/")}
             className="text-black hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
           >
             Login
