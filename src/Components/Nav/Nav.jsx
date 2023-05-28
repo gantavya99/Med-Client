@@ -104,9 +104,9 @@ const Nav = () => {
           </div>
         )}
 
-        <div className="mx-2 p-2 hover:text-[#10847e]">How to Order?</div>
-        <div className="mx-2 p-2 hover:text-[#10847e]">FAQs</div>
-        <div className="mx-2 p-2 hover:text-[#10847e]">Testimonials</div>
+        <div className="mx-2 p-2 hover:text-[#10847e] hidden lg:block">How to Order?</div>
+        <div className="mx-2 p-2 hover:text-[#10847e] hidden lg:block">FAQs</div>
+        <div className="mx-2 p-2 hover:text-[#10847e] hidden lg:block">Testimonials</div>
         <div className="mx-2 p-2 hover:text-[#10847e]">Contact Us</div>
       </div>
 
