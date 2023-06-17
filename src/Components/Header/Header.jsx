@@ -91,7 +91,7 @@ const Header = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0 cursor-pointer">
               <div className="text-black">
-                <img className="h-8" src={logo} alt="logo" />
+                <img onClick={() => navigate("/")} className="h-8 w-44" src={logo} alt="logo" />
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ const Header = () => {
                 href="#"
                 className="text-black hover:text-[#10847e] px-3 py-2 rounded-md text-sm font-medium"
               >
-                <BsPerson className="mr-2 mt-1" />
+                <BsPerson className="mr-2 mt-1 text-2xl" />
                 Log In
               </span>
 
@@ -110,7 +110,7 @@ const Header = () => {
                 className="text-black hover:text-[#10847e] px-3 py-2 rounded-md text-sm font-medium"
               >
                 <span>
-                  <CiDiscount1 className="mr-2 mt-1" />
+                  <CiDiscount1 className="mr-2 mt-1 text-2xl" />
                 </span>
                 Offers
               </span>
@@ -118,7 +118,7 @@ const Header = () => {
                 href="#"
                 className="hover:text-[#10847e] text-black nav-items-right px-3 py-2 rounded-md text-sm font-medium"
               >
-                <BsCart2 className="mr-2 mt-1" />
+                <BsCart2 onClick={() => navigate("/cart")} className="mr-2 mt-1 text-2xl" />
                 <span onClick={() => navigate("/cart")}>
                   Cart({items.cartItems && items.cartItems.length})
                 </span>
@@ -168,13 +168,13 @@ const Header = () => {
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a
-            onClick={()=>navigate("/cart")}
+            onClick={() => navigate("/cart")}
             className="text-black hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
           >
             Cart
           </a>
           <a
-            onClick={()=>navigate("/")}
+            onClick={() => navigate("/")}
             className="text-black hover:bg-gray-200 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
           >
             Login

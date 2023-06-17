@@ -36,7 +36,7 @@ const CategoryList = () => {
       >
         <div onClick={() => navigate("/products/Opioids")} className="flex flex-col items-center">
           <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-44 lg:mx-20"
+            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={yellowCard}
             alt="medicine"
           />
@@ -46,7 +46,7 @@ const CategoryList = () => {
         </div>
         <div onClick={() => navigate("/products/Psychedelics")} className="flex flex-col items-center">
           <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-44 lg:mx-20"
+            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Pink}
             alt="medicine"
           />
@@ -56,7 +56,7 @@ const CategoryList = () => {
         </div>
         <div onClick={() => navigate("/products/Cannabinoids")} className="flex flex-col items-center">
           <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-44 lg:mx-20"
+            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Grey}
             alt="medicine"
           />
@@ -66,7 +66,7 @@ const CategoryList = () => {
         </div>
         <div onClick={() => navigate("/products/Research Chemical")} className="flex flex-col items-center">
           <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-44 lg:mx-20"
+            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Blue}
             alt="medicine"
           />
@@ -76,7 +76,7 @@ const CategoryList = () => {
         </div>
         <div onClick={() => navigate("/products/Weight Loss")} className="flex flex-col items-center">
           <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-44 lg:mx-20"
+            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Green}
             alt="medicine"
           />
@@ -86,7 +86,7 @@ const CategoryList = () => {
         </div>
         <div onClick={() => navigate("/products/Gummies and Chocolates")} className="flex flex-col items-center">
           <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-44 lg:mx-20"
+            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Chocolate}
             alt="medicine"
           />
