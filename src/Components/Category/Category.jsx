@@ -34,7 +34,7 @@ const CategoryList = () => {
         id="category1"
         className="flex carousel p-6 mt-5 justify-start overflow-x-auto scroll-smooth scrollbar-hide"
       >
-        <div onClick={() => navigate("/products/Opioids")} className="flex flex-col items-center">
+        <div onClick={() => navigate("/Checkout")} className="flex flex-col items-center">
           <img
             className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={yellowCard}
