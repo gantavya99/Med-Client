@@ -62,7 +62,6 @@ const Product = ({
       <img
         className="w-full h-36 object-cover border-b border-gray-200 hover:opacity-90 transition-opacity"
         src={imageUrl}
-        alt={description}
         onClick={handleClick}
       />
       <div className="p-2">

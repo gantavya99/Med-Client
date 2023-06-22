@@ -34,54 +34,54 @@ const CategoryList = () => {
         id="category1"
         className="flex carousel p-6 mt-5 justify-start overflow-x-auto scroll-smooth scrollbar-hide"
       >
-        <div onClick={() => navigate("/Checkout")} className="flex flex-col items-center">
+        <div onClick={() => navigate("products/Cannabis and Hashish")} className="flex flex-col items-center">
           <img
             className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={yellowCard}
             alt="medicine"
           />
           <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Opioids
+            Cannabis and Hashish
           </p>
         </div>
-        <div onClick={() => navigate("/products/Psychedelics")} className="flex flex-col items-center">
+        <div onClick={() => navigate("/products/Benzos")} className="flex flex-col items-center">
           <img
             className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Pink}
             alt="medicine"
           />
           <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Psychedelics
+            Benzos
           </p>
         </div>
-        <div onClick={() => navigate("/products/Cannabinoids")} className="flex flex-col items-center">
+        <div onClick={() => navigate("/products/Dissociatives")} className="flex flex-col items-center">
           <img
             className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Grey}
             alt="medicine"
           />
           <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Cannabinoids
+            Dissociatives
           </p>
         </div>
-        <div onClick={() => navigate("/products/Research Chemical")} className="flex flex-col items-center">
+        <div onClick={() => navigate("/products/Opioids")} className="flex flex-col items-center">
           <img
             className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Blue}
             alt="medicine"
           />
           <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Research Chemical
+            Opioids
           </p>
         </div>
-        <div onClick={() => navigate("/products/Weight Loss")} className="flex flex-col items-center">
+        <div onClick={() => navigate("/products/Stimulants")} className="flex flex-col items-center">
           <img
             className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
             src={Green}
             alt="medicine"
           />
           <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Weight Loss/Diabetes
+            Stimulants
           </p>
         </div>
         <div onClick={() => navigate("/products/Gummies and Chocolates")} className="flex flex-col items-center">

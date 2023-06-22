@@ -1,12 +1,27 @@
 import React from "react";
 import "./Nav.css";
+import axios from "axios";
 import { ClassNames } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 const Nav = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [data, setData] = useState([]);
   let timeoutId;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("https://med-server-production.up.railway.app/api/products/all")
+      .then((response) => {
+        setData(response.data);
+        // console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
 
   const handleMouseEnter = () => {
     setMenuOpen(true);
@@ -18,6 +33,8 @@ const Nav = () => {
       setMenuOpen(false);
     }, 500); // Change the delay time as needed (in milliseconds)
   };
+
+  
 
   return (
     <>
@@ -58,6 +75,35 @@ const Nav = () => {
               aria-orientation="vertical"
               aria-labelledby="options-menu"
             >
+              {/* {data.map((item,key)=>(
+                <>
+                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem" onClick={()=>navigate(`/products/${category}`)}>
+                  {}
+                </a>
+                </>
+              ))} */}
+              <a
+                onClick={()=>navigate("/products/Cannabis and Hashish")}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                Cannabis and Hashish
+              </a>
+              <a
+                onClick={()=>navigate("/products/Psychedelics")}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                Benzos
+              </a>
+              <a
+                onClick={()=>navigate("/products/Dissociatives")}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                Dissociatives
+              </a>
               <a
                 onClick={()=>navigate("/products/Opioids")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
@@ -66,32 +112,11 @@ const Nav = () => {
                 Opioids
               </a>
               <a
-                onClick={()=>navigate("/products/Psychedelics")}
+                onClick={()=>navigate("/products/Stimulants")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
-                Psychedelics
-              </a>
-              <a
-                onClick={()=>navigate("/products/Cannabinoids")}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
-              >
-                Cannabinoids
-              </a>
-              <a
-                onClick={()=>navigate("/products/Research Chemical")}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
-              >
-                Research Chemical
-              </a>
-              <a
-                onClick={()=>navigate("/products/Weight Loss")}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
-              >
-                Weight Loss/ diabetes
+                Stimulants
               </a>
               <a
                 onClick={()=>navigate("/products/Gummies and Chocolates")}
