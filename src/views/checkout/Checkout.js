@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Checkout = ({price}) => {
   
 
   const handlePayment = async () => {
-    const response = await fetch('http://localhost:5656/create-checkout-session', {
+    const response = await fetch('https://med-server-production.up.railway.app/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,9 +21,7 @@ const Checkout = ({price}) => {
 
   return (
     <div>
-      <h1>Stripe Checkout Example</h1>
-      
-      <button onClick={handlePayment}>Pay</button>
+      <button onClick={handlePayment}>Checkout</button>
     </div>
   );
 };
