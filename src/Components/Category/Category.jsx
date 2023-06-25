@@ -1,102 +1,66 @@
-import React from "react";
-import yellowCard from "../../assets/Category/Yellow.svg";
-import Blue from "../../assets/Category/Blue.svg";
-import Chocolate from "../../assets/Category/Chocolate.svg";
-import Green from "../../assets/Category/Green.svg";
-import Grey from "../../assets/Category/Grey.svg";
-import Pink from "../../assets/Category/Pink.svg";
 import { useNavigate } from "react-router-dom";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+const callouts = [
+  {
+    name: 'Cannabis and Hashish',
+    imageSrc: 'https://media.istockphoto.com/id/1187851138/photo/edible-marijuana-for-chronic-pain-treatment-alternative-medicine-diet-and-legal-weed-concept.jpg?s=612x612&w=0&k=20&c=nMcPp19gUtzFZlZXSrGirlbYK1Ofw0msSSh0fl6Z7MU=', 
+  },
+  {
+    name: 'Benzos',
+    imageSrc: 'https://media.istockphoto.com/id/644472852/photo/doctor-holding-medicine-valium.jpg?s=612x612&w=0&k=20&c=Iaj-qpJ17cEsCaSV1TDFQ1pnJMF0eWbyTEGvY4fu8pk=', 
+  },
+  {
+    name: 'Dissociatives',
+    imageSrc: 'https://media.istockphoto.com/id/1367764186/photo/cooked-heroin-drugs-and-injection-syringe.jpg?s=612x612&w=0&k=20&c=STVpISvZpE-wFBOou6eItFoahjrZ8R9Zrx6PYPMGOTE=', 
+  },
+  {
+    name: 'Opioids',
+    imageSrc: 'https://media.istockphoto.com/id/1316346360/photo/oxycodone-opioid-tablets-bottle-and-label-in-extreme-close-up-for-court-battle-in-wv.jpg?s=612x612&w=0&k=20&c=1AGXAAkjxVXb5TaVbN_7MrZKKekuCnXFK-Rg9drKieQ=', 
+  },
+  {
+    name: 'Stimulants',
+    imageSrc: 'https://media.istockphoto.com/id/1216315320/photo/junkie-is-using-drugs-using-heroin-in-the-room.jpg?s=612x612&w=0&k=20&c=Kh3nFTTCx54xAS5L8QfKqz18hzEUQu9bP4faRTDxcvg=', 
+  },
+  {
+    name: 'Psychedelics',
+    imageSrc: 'https://media.istockphoto.com/id/1034229138/photo/fly-agaric-growing-in-a-forest.jpg?s=612x612&w=0&k=20&c=4IvVwM3nkwH3xjEGXC5kuIUScborf1g8ah6ez-whd_o=', 
+  },
+  {
+    name: 'Weight Loss',
+    imageSrc: 'https://m.media-amazon.com/images/I/61KgNIUhBDL._AC_UF1000,1000_QL80_.jpg', 
+  },
+  
+]
 
-const CategoryList = () => {
+export default function CategoryList() {
   const navigate = useNavigate();
-
-  const scrollLeft = () => {
-    document.getElementById("category1").scrollLeft -= 400;
-  };
-
-  const scrollRight = () => {
-    document.getElementById("category1").scrollLeft += 400;
-  };
-
   return (
-    <div className="cursor-pointer relative">
-      <h1 className="font-semibold text-xl lg:text-3xl">Categories</h1>
-      <div className="absolute right-0 top-5">
-        <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white">
-          <FiChevronLeft />
-        </button>
-        <button onClick={scrollRight} className="p-2 m-2 rounded-full bg-white">
-          <FiChevronRight />
-        </button>
-      </div>
-      <div
-        id="category1"
-        className="flex carousel p-6 mt-5 justify-start overflow-x-auto scroll-smooth scrollbar-hide"
-      >
-        <div onClick={() => navigate("products/Cannabis and Hashish")} className="flex flex-col items-center">
-          <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
-            src={yellowCard}
-            alt="medicine"
-          />
-          <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Cannabis and Hashish
-          </p>
-        </div>
-        <div onClick={() => navigate("/products/Benzos")} className="flex flex-col items-center">
-          <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
-            src={Pink}
-            alt="medicine"
-          />
-          <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Benzos
-          </p>
-        </div>
-        <div onClick={() => navigate("/products/Dissociatives")} className="flex flex-col items-center">
-          <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
-            src={Grey}
-            alt="medicine"
-          />
-          <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Dissociatives
-          </p>
-        </div>
-        <div onClick={() => navigate("/products/Opioids")} className="flex flex-col items-center">
-          <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
-            src={Blue}
-            alt="medicine"
-          />
-          <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Opioids
-          </p>
-        </div>
-        <div onClick={() => navigate("/products/Stimulants")} className="flex flex-col items-center">
-          <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
-            src={Green}
-            alt="medicine"
-          />
-          <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Stimulants
-          </p>
-        </div>
-        <div onClick={() => navigate("/products/Gummies and Chocolates")} className="flex flex-col items-center">
-          <img
-            className="w-16 transition-transform duration-300 hover:scale-105 lg:w-32 lg:mx-20"
-            src={Chocolate}
-            alt="medicine"
-          />
-          <p className="mt-2 text-center text-sm lg:text-base overflow-hidden">
-            Gummies and Chocolates
-          </p>
+    <div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl py-16 sm:py-12 lg:max-w-none lg:pb-16">
+          <h2 className="text-2xl font-bold text-gray-900">Categories</h2>
+
+          <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+            {callouts.map((callout) => (
+              <div key={callout.name} onClick={navigate("/")}className="group relative mb-4">
+                <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+                  <img
+                    src={callout.imageSrc}
+                    alt={callout.imageAlt}
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <h3 className="mt-2 text-xl text-black">
+                  <a href={callout.href}>
+                    <span className="absolute inset-0" />
+                    {callout.name}
+                  </a>
+                </h3>
+                
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
-  );
-};
-
-export default CategoryList;
+  )
+}

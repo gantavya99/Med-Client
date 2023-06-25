@@ -65,15 +65,15 @@ const Product = ({
         onClick={handleClick}
       />
       <div className="p-2">
-        <h3 className="text-lg font-medium">{title}</h3>
+        <h3 onClick={handleClick} className="text-lg font-medium">{title}</h3>
         <p className="text-xs float-right text-gray-400">({category})</p>
         <div className="flex mt-2">
           <div>
             <p className="font-medium text-2xl">${price}</p>
           </div>
-          <div className="text-[#f47779] mt-2 ml-2 text-sm whitespace-nowrap">
+          {/* <div className="text-[#f47779] mt-2 ml-2 text-sm whitespace-nowrap">
             {discount}% OFF
-          </div>
+          </div> */}
         </div>
 
         <div className="flex items-center justify-between mt-4">

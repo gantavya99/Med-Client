@@ -92,10 +92,10 @@ const ProductPage = () => {
           <div className="flex items-center justify-center text-lg">${data.price}</div>
         </div>
         <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-          <p className="text-base leading-4 text-gray-800">Weight (in gms)</p>
+          {/* <p className="text-base leading-4 text-gray-800">Weight (in gms)</p> */}
           <div className="flex items-center justify-center">
-            <p className="text-sm leading-none text-gray-600 mr-3">5</p>
-            <svg
+            {/* <p className="text-sm leading-none text-gray-600 mr-3">5</p> */}
+            {/* <svg
               className="cursor-pointer"
               width="6"
               height="10"
@@ -110,7 +110,7 @@ const ProductPage = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-            </svg>
+            </svg> */}
           </div>
         </div>
         <button
@@ -133,12 +133,8 @@ const ProductPage = () => {
           Add to Cart
         </button>
         <div>
-          <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 mt-7">
-            {/* Hydrocodone/paracetamol is the combination of the pain medications
-            hydrocodone and paracetamol. It is used to treat moderate to severe
-            pain. It is taken by mouth. Recreational use is common in the United
-            States. Common side effects include dizziness, sleepiness,
-            constipation, and vomiting. */}
+          <p className="xl:pr-2 text-base lg:leading-tight leading-normal text-gray-600 mt-7">
+            
             {data.description}
           </p>
           <p className="text-base leading-4 mt-7 text-gray-600">

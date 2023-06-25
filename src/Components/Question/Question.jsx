@@ -24,10 +24,7 @@ const Question = () => {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Yes, for special circumstances the details are mentioned in the product description
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -40,10 +37,7 @@ const Question = () => {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Every product has a different refund policy which is mentioned in the Product's description
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -56,10 +50,7 @@ const Question = () => {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Yes, all these medications are certified and the certifications are mentioned on the top.
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
