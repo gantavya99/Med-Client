@@ -1,30 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import ClipLoader from "react-spinners/ClipLoader";
 
-const PayButton = ({cartItems}) => {
-const handleCheckout = () =>{
-    axios.post(`https://med-server-production.up.railway.app/create-checkout-session`,{
-        cartItems:cartItems,
-    }).then((res)=>{
-        if(res.data.url){
-            window.location.href=res.data.url
-            console.log("Button clicked checkout")
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
+
+const PayButton = ({ cartItems }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCheckout = () => {
+    setIsLoading(true); // Set loading state to true
+
+    axios
+      .post(`https://med-server-production.up.railway.app/create-checkout-session`, {
+        cartItems: cartItems,
+      })
+      .then((res) => {
+        if (res.data.url) {
+          // Redirect to the provided URL
+          window.location.href = res.data.url;
         }
-    }).catch((err)=>console.log(err.message))
+      })
+      .catch((err) => console.log(err.message))
+      .finally(() => {
+        setIsLoading(false); // Set loading state to false after the request is complete
+      });
+
     console.log(cartItems);
-}
+  };
 
   return (
     <div>
-        <button onClick={() => handleCheckout()}>
-            Check Out
-        </button>
+      <button onClick={() => handleCheckout()} disabled={isLoading}>
+        {isLoading ? <ClipLoader
+        color={'#ffffff'} loading={true}
+        cssOverride={override}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      /> : 'Check Out'}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default PayButton
+export default PayButton;
+
 
 // import React, { useState, useEffect } from "react";
 // import "./App.css";
