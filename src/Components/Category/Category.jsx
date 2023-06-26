@@ -26,7 +26,11 @@ const callouts = [
   },
   {
     name: 'Weight Loss',
-    imageSrc: 'https://m.media-amazon.com/images/I/61KgNIUhBDL._AC_UF1000,1000_QL80_.jpg', 
+    imageSrc: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/320/320646/weight-loss-and-diet-pills-surrounded-by-measuring-tape.jpg', 
+  },
+  {
+    name: 'Steroids',
+    imageSrc: 'https://media.istockphoto.com/id/1250471462/photo/bottle-of-steroid-injection-with-a-syringe-on-black-table-and-stainless-steel-background.jpg?s=612x612&w=0&k=20&c=WQW8QSoVjrS7-C3SJ1_sX9xjx9VfcDKskdzl7o9gn50=', 
   },
   
 ]
@@ -36,7 +40,7 @@ export default function CategoryList() {
   return (
     <div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl py-16 sm:py-12 lg:max-w-none lg:pb-16">
+        <div className="mx-auto max-w-2xl lg:max-w-none pb-8">
           <h2 className="text-2xl font-bold text-gray-900">Categories</h2>
 
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">

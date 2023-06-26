@@ -6,6 +6,7 @@ import ProductPage from "./views/ProductPage/ProductPage";
 import Cart from "./views/Cart/Cart";
 import Checkout from "./views/checkout/Checkout";
 import Success from "./views/Cart/Success";
+import Login from "./views/Login/Login";
 
 const MedPharmRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const MedPharmRoutes = () => {
         <Route path ="/cart" element={<Cart />}/>
         <Route path ="/checkout" element={<Checkout />}/>
         <Route path ="/success" element={<Success />}/>
+        <Route path ="/login" element={<Login />}/>
         </Routes>
         </Suspense>
     </div>

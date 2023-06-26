@@ -119,11 +119,25 @@ const Nav = () => {
                 Stimulants
               </a>
               <a
-                onClick={()=>navigate("/products/Gummies and Chocolates")}
+                onClick={()=>navigate("/products/Psychedelics")}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
-                Gummies and Chocolates
+                Psychedelics
+              </a>
+              <a
+                onClick={()=>navigate("/products/Weight Loss")}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                Weight Loss
+              </a>
+              <a
+                onClick={()=>navigate("/products/Steroids")}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                Steroids
               </a>
             </div>
           </div>
