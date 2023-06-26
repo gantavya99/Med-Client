@@ -15,7 +15,7 @@ import Checkout from "../checkout/Checkout";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const cartItems = useSelector((state)=>state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -110,7 +110,21 @@ const Cart = () => {
               </div>
               <p>Taxes and shipping calculated at checkout</p>
               <Checkout price={cart.cartTotalAmount} />
-                {console.log(cart.cartItems)}
+              {console.log(cart.cartItems)}
+
+              <div>
+                <a
+                  class="buy-with-crypto"
+                  href="https://commerce.coinbase.com/checkout/771fa0d9-586f-4c49-a954-5ecd104e381a"
+                >
+                  <button className="mt-4">
+                  Buy with Crypto
+                  </button>
+                  
+                </a>
+               
+              </div>
+
               <div className="continue-shopping">
                 <Link to="/">
                   <svg
