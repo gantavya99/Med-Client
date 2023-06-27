@@ -117,7 +117,7 @@ const Cart = () => {
                   class="buy-with-crypto"
                   href="https://commerce.coinbase.com/checkout/771fa0d9-586f-4c49-a954-5ecd104e381a"
                 >
-                  <button className="mt-4">
+                  <button className="mt-4 hover:opacity-75">
                   Buy with Crypto
                   </button>
                   

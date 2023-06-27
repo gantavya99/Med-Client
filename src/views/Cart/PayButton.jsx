@@ -35,14 +35,8 @@ const PayButton = ({ cartItems }) => {
 
   return (
     <div>
-      <button onClick={() => handleCheckout()} disabled={isLoading}>
-        {isLoading ? <ClipLoader
-        color={'#ffffff'} loading={true}
-        cssOverride={override}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      /> : 'Check Out'}
+      <button onClick={() => handleCheckout()}>
+        Check Out
       </button>
     </div>
   );
