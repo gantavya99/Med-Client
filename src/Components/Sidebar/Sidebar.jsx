@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Button, Radio, RadioGroup, Stack } from "@chakra-ui/react";
 import {
   RangeSlider,
@@ -9,10 +9,25 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const [selectedValue, setSelectedValue] = useState(() => {
+    return localStorage.getItem("selectedValue") || "1";
+  });
+
   const handleButtonClick = () => {
     window.location.reload();
   };
+
   const navigate = useNavigate();
+
+  const handleRadioButtonClick = (value) => {
+    setSelectedValue(value);
+    handleButtonClick();
+  };
+
+  useEffect(() => {
+    localStorage.setItem("selectedValue", selectedValue);
+  }, [selectedValue]);
+
   return (
     <div className="w-64 border-r-2">
       <aside>
@@ -43,30 +58,96 @@ const Sidebar = () => {
 
         <div className="m-4">
           <h3 className="text-lg font-bold mb-4">Category</h3>
-          <RadioGroup defaultValue="1">
+          <RadioGroup value={selectedValue} onChange={setSelectedValue}>
             <Stack spacing={1} direction="column">
-              <Radio onClick={()=>{navigate("/products/Cannabis and Hashish");handleButtonClick()}} className="my-2" colorScheme="green" value="1">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Cannabis and Hashish");
+                  handleButtonClick();
+                  
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="1"
+              >
                 Cannabis and Hashish
               </Radio>
-              <Radio onClick={()=>{navigate("/products/Benzos");handleButtonClick()}} className="my-2" colorScheme="green" value="2">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Benzos");
+                  handleButtonClick();
+                  
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="2"
+              >
                 Benzos
               </Radio>
-              <Radio onClick={()=>{navigate("/products/Dissociatives");handleButtonClick()}} className="my-2" colorScheme="green" value="3">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Dissociatives");
+                  handleButtonClick();
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="3"
+              >
                 Dissociatives
               </Radio>
-              <Radio onClick={()=>{navigate("/products/Opioids");handleButtonClick()}} className="my-2" colorScheme="green" value="4">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Opioids");
+                  handleButtonClick();
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="4"
+              >
                 Opiods
               </Radio>
-              <Radio onClick={()=>{navigate("/products/Stimulants");handleButtonClick()}} className="my-2" colorScheme="green" value="5">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Stimulants");
+                  handleButtonClick();
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="5"
+              >
                 Stimulants
               </Radio>
-              <Radio onClick={()=>{navigate("/products/Psychedelics");handleButtonClick()}} className="my-2" colorScheme="green" value="6">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Psychedelics");
+                  handleButtonClick();
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="6"
+              >
                 Psychedelics
               </Radio>
-              <Radio onClick={()=>{navigate("/products/Weight Loss");handleButtonClick()}} className="my-2" colorScheme="green" value="6">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Weight Loss");
+                  handleButtonClick();
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="7"
+              >
                 Weight Loss
               </Radio>
-              <Radio onClick={()=>{navigate("/products/Steroids");handleButtonClick()}} className="my-2" colorScheme="green" value="6">
+              <Radio
+                onClick={() => {
+                  navigate("/products/Steroids");
+                  handleButtonClick();
+                }}
+                className="my-2"
+                colorScheme="green"
+                value="8"
+              >
                 Steroids
               </Radio>
             </Stack>
