@@ -109,8 +109,8 @@ const Cart = () => {
                 <span className="amount">${cart.cartTotalAmount}</span>
               </div>
               <p>Taxes and shipping calculated at checkout</p>
-              <Checkout price={cart.cartTotalAmount} />
-              {console.log(cart.cartItems)}
+              {/* <Checkout price={cart.cartTotalAmount} /> */}
+              {/* {console.log(cart.cartItems)} */}
 
               <div>
                 <a
@@ -122,8 +122,10 @@ const Cart = () => {
                   </button>
                   
                 </a>
-               
               </div>
+              <p>
+                Payment method other than crypto? Contact our live chat for more info!
+              </p>
 
               <div className="continue-shopping">
                 <Link to="/">

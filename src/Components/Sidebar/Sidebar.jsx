@@ -6,8 +6,13 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const handleButtonClick = () => {
+    window.location.reload();
+  };
+  const navigate = useNavigate();
   return (
     <div className="w-64 border-r-2">
       <aside>
@@ -40,23 +45,29 @@ const Sidebar = () => {
           <h3 className="text-lg font-bold mb-4">Category</h3>
           <RadioGroup defaultValue="1">
             <Stack spacing={1} direction="column">
-              <Radio className="my-2" colorScheme="green" value="1">
-                Opioids
+              <Radio onClick={()=>{navigate("/products/Cannabis and Hashish");handleButtonClick()}} className="my-2" colorScheme="green" value="1">
+                Cannabis and Hashish
               </Radio>
-              <Radio className="my-2" colorScheme="green" value="2">
+              <Radio onClick={()=>{navigate("/products/Benzos");handleButtonClick()}} className="my-2" colorScheme="green" value="2">
+                Benzos
+              </Radio>
+              <Radio onClick={()=>{navigate("/products/Dissociatives");handleButtonClick()}} className="my-2" colorScheme="green" value="3">
+                Dissociatives
+              </Radio>
+              <Radio onClick={()=>{navigate("/products/Opioids");handleButtonClick()}} className="my-2" colorScheme="green" value="4">
+                Opiods
+              </Radio>
+              <Radio onClick={()=>{navigate("/products/Stimulants");handleButtonClick()}} className="my-2" colorScheme="green" value="5">
+                Stimulants
+              </Radio>
+              <Radio onClick={()=>{navigate("/products/Psychedelics");handleButtonClick()}} className="my-2" colorScheme="green" value="6">
                 Psychedelics
               </Radio>
-              <Radio className="my-2" colorScheme="green" value="3">
-                Cannabinoids
+              <Radio onClick={()=>{navigate("/products/Weight Loss");handleButtonClick()}} className="my-2" colorScheme="green" value="6">
+                Weight Loss
               </Radio>
-              <Radio className="my-2" colorScheme="green" value="4">
-                Research Chemical
-              </Radio>
-              <Radio className="my-2" colorScheme="green" value="5">
-                Weigth Loss/ Diabetes
-              </Radio>
-              <Radio className="my-2" colorScheme="green" value="6">
-                Gummies and Chocolates
+              <Radio onClick={()=>{navigate("/products/Steroids");handleButtonClick()}} className="my-2" colorScheme="green" value="6">
+                Steroids
               </Radio>
             </Stack>
           </RadioGroup>

@@ -34,6 +34,9 @@ const Nav = () => {
     }, 500); // Change the delay time as needed (in milliseconds)
   };
 
+  const handleButtonClick = () => {
+    window.location.reload();
+  };
   
 
   return (
@@ -84,56 +87,56 @@ const Nav = () => {
                 </>
               ))} */}
               <a
-                onClick={()=>navigate("/products/Cannabis and Hashish")}
+                onClick={()=>{navigate("/products/Cannabis and Hashish");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Cannabis and Hashish
               </a>
               <a
-                onClick={()=>navigate("/products/Benzos")}
+                onClick={()=>{navigate("/products/Benzos");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
+                role="menuitem"     
               >
                 Benzos
               </a>
               <a
-                onClick={()=>navigate("/products/Dissociatives")}
+                onClick={()=>{navigate("/products/Dissociatives");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Dissociatives
               </a>
               <a
-                onClick={()=>navigate("/products/Opioids")}
+                onClick={()=>{navigate("/products/Opioids");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Opioids
               </a>
               <a
-                onClick={()=>navigate("/products/Stimulants")}
+                onClick={()=>{navigate("/products/Stimulants");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Stimulants
               </a>
               <a
-                onClick={()=>navigate("/products/Psychedelics")}
+                onClick={()=>{navigate("/products/Psychedelics");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Psychedelics
               </a>
               <a
-                onClick={()=>navigate("/products/Weight Loss")}
+                onClick={()=>{navigate("/products/Weight Loss");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
                 Weight Loss
               </a>
               <a
-                onClick={()=>navigate("/products/Steroids")}
+                onClick={()=>{navigate("/products/Steroids");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
