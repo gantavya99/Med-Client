@@ -46,19 +46,8 @@ const cartSlice = createSlice({
 
       
     removeFromCart(state, action) {
-      state.cartItems.map((cartItem) => {
-        if (cartItem.id === action.payload.id) {
-          const nextCartItems = state.cartItems.filter(
-            (item) => item.id !== cartItem.id
-          );
-
-          state.cartItems = nextCartItems;
-
-         
-        }
-       
-        return state;
-      });
+      const itemId = action.payload._id;
+      state.cartItems = state.cartItems.filter((cartItem) => cartItem._id !== itemId);
     },
     getTotals(state, action) {
       let { total, quantity } = state.cartItems.reduce(
