@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
+import CoinbaseCommerceButton from 'react-coinbase-commerce';
+import 'react-coinbase-commerce/dist/coinbase-commerce-button.css';
+import axios from "axios";
 import {
   addToCart,
   clearCart,
@@ -15,8 +18,23 @@ import Checkout from "../checkout/Checkout";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const [coinbaseData,setCoinbaseData]=useState("");
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
+
+  const handleClickCoinbase = async () => {
+    try {
+      const response = await axios.post('https://localhost:5656/api/coinbase/checkout', {
+        amount: cart.cartTotalAmount, // Replace with the actual amount
+      });
+      const data = response.data;
+
+      // Redirect the user to the hosted URL
+      window.location.href = data.charge.hosted_url;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     dispatch(getTotals());
@@ -96,7 +114,7 @@ const Cart = () => {
                   <div className="cart-product-total-price">
                     ${cartItem.price * cartItem.cartQuantity}
                   </div>
-                </div>
+                </div> 
               ))}
           </div>
           <div className="cart-summary">
@@ -143,6 +161,7 @@ const Cart = () => {
                     />
                   </svg>
                   <span>Continue Shopping</span>
+                  <button onClick={handleClickCoinbase}>Checkout</button>
                 </Link>
               </div>
             </div>
