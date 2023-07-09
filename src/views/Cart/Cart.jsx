@@ -12,7 +12,7 @@ import {
   removeFromCart,
 } from "../../store/CartSlice";
 import StripeCheckout from "react-stripe-checkout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PayButton from "./PayButton";
 import Checkout from "../checkout/Checkout";
 
@@ -21,22 +21,24 @@ const Cart = () => {
   const [coinbaseData,setCoinbaseData]=useState("");
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClickCoinbase = async () => {
     try {
-      const response = await axios.post('https://localhost:5656/api/coinbase/checkout', {
+      const response = await axios.post('https://med-server-production.up.railway.app/api/coinbase/checkout', {
         amount: cart.cartTotalAmount, // Replace with the actual amount
       });
       const data = response.data;
-
-      // Redirect the user to the hosted URL
-      window.location.href = data.charge.hosted_url;
+      console.log(data.charge.hosted_url);
+      window.location.href=data.charge.hosted_url;
+      
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
+    
     dispatch(getTotals());
   }, [cart, dispatch]);
 
@@ -129,8 +131,8 @@ const Cart = () => {
               <p>Taxes and shipping calculated at checkout</p>
               {/* <Checkout price={cart.cartTotalAmount} /> */}
               {/* {console.log(cart.cartItems)} */}
-
-              <div>
+                
+              {/* <div>
                 <a
                   class="buy-with-crypto"
                   href="https://commerce.coinbase.com/checkout/771fa0d9-586f-4c49-a954-5ecd104e381a"
@@ -140,7 +142,12 @@ const Cart = () => {
                   </button>
                   
                 </a>
-              </div>
+              </div> */}
+              <div>
+                <button onClick={()=>handleClickCoinbase()}>
+                  Checkout with Crypto
+                </button>
+                </div>
               <p>
                 Payment method other than crypto? Contact our live chat for more info!
               </p>
@@ -161,7 +168,7 @@ const Cart = () => {
                     />
                   </svg>
                   <span>Continue Shopping</span>
-                  <button onClick={handleClickCoinbase}>Checkout</button>
+                  
                 </Link>
               </div>
             </div>
