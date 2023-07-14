@@ -13,30 +13,33 @@ import StripeCheckout from "react-stripe-checkout";
 import { Link, useNavigate } from "react-router-dom";
 import PayButton from "./PayButton";
 import Checkout from "../checkout/Checkout";
-
+import { Select } from "@chakra-ui/react";
+import { Radio, RadioGroup, Stack } from "@chakra-ui/react";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const [coinbaseData,setCoinbaseData]=useState("");
+  const [coinbaseData, setCoinbaseData] = useState("");
+  const [value, setValue] = useState("28");
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleClickCoinbase = async () => {
     try {
-      const response = await axios.post('https://med-server-production.up.railway.app/api/coinbase/checkout', {
-        amount: cart.cartTotalAmount, // Replace with the actual amount
-      });
+      const response = await axios.post(
+        "https://med-server-production.up.railway.app/api/coinbase/checkout",
+        {
+          amount: cart.cartTotalAmount + Number(value), // Replace with the actual amount
+        }
+      );
       const data = response.data;
       console.log(data.charge.hosted_url);
-      window.location.href=data.charge.hosted_url;
-      
+      window.location.href = data.charge.hosted_url;
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    
     dispatch(getTotals());
   }, [cart, dispatch]);
 
@@ -51,6 +54,9 @@ const Cart = () => {
   };
   const handleClearCart = () => {
     dispatch(clearCart());
+  };
+  const handleRadioChange = (selectedValue) => {
+    setValue(selectedValue);
   };
   return (
     <div className="cart-container">
@@ -114,40 +120,58 @@ const Cart = () => {
                   <div className="cart-product-total-price">
                     ${cartItem.price * cartItem.cartQuantity}
                   </div>
-                </div> 
+                </div>
               ))}
           </div>
+
           <div className="cart-summary">
             <button className="clear-btn" onClick={() => handleClearCart()}>
               Clear Cart
             </button>
             <div className="cart-checkout">
               <div className="subtotal">
-                <span>Subtotal</span>
+                <span>Total</span>
                 <span className="amount">${cart.cartTotalAmount}</span>
               </div>
-              <p>Taxes and shipping calculated at checkout</p>
-              {/* <Checkout price={cart.cartTotalAmount} /> */}
-              {/* {console.log(cart.cartItems)} */}
-                
-              {/* <div>
-                <a
-                  class="buy-with-crypto"
-                  href="https://commerce.coinbase.com/checkout/771fa0d9-586f-4c49-a954-5ecd104e381a"
-                >
-                  <button className="mt-4 hover:opacity-75">
-                  Buy with Crypto
-                  </button>
-                  
-                </a>
+              {/* <div className="Delivery-options m-2 flex w-72">
+              <Select placeholder="Delivery Option" className="mr-56">
+                <option value="option1">3 Days Priority Shipping - $28</option>
+                <option value="option2">Express Delivery (24-48hours) - $64</option>
+              </Select>
               </div> */}
+
+              {cart.cartTotalAmount < 400 && (
+                <RadioGroup
+                  className="my-4"
+                  onChange={handleRadioChange}
+                  value={value}
+                >
+                  <Stack direction="column">
+                    <Radio value="28">3 Days Priority Shipping - $28</Radio>
+                    <Radio value="64">Express (24-48 hours) - $64</Radio>
+                  </Stack>
+                </RadioGroup>
+              )}
+              <p>
+                No delivery fees above $400
+              </p>
+              {console.log(value)}
+              <div className="subtotal">
+                <span>Subtotal</span>
+                <span className="amount">
+                  ${cart.cartTotalAmount<400?cart.cartTotalAmount + Number(value):cart.cartTotalAmount}
+                </span>
+              </div>
+              {/* <p>Taxes and shipping calculated at checkout</p> */}
+
               <div>
-                <button onClick={()=>handleClickCoinbase()}>
+                <button className="my-4" onClick={() => handleClickCoinbase()}>
                   Checkout with Crypto
                 </button>
-                </div>
+              </div>
               <p>
-                Payment method other than crypto? Contact our live chat for more info!
+                Payment method other than crypto? Contact our live chat for more
+                info!
               </p>
 
               <div className="continue-shopping">
@@ -166,7 +190,6 @@ const Cart = () => {
                     />
                   </svg>
                   <span>Continue Shopping</span>
-                  
                 </Link>
               </div>
             </div>
