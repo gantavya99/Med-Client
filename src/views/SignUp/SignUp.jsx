@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-const Login = () => {
-
-  
+const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -12,7 +10,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col items-center mt-10">
       <div className="flex flex-col border border-grey-500 bg-white shadow-lg px-4 sm:px-6 md:px-8 lg:px-10 py-1 rounded-md w-full max-w-md">
-        <div className="font-medium self-center text-xl sm:text-2xl uppercase mt-4 text-gray-800">Login to your Account</div>
+        <div className="font-medium self-center text-xl sm:text-2xl uppercase mt-4 text-gray-800">Sign Up</div>
         <div className="mt-10">
           <form action="#">
             <div className="flex flex-col mb-6">
@@ -30,6 +28,34 @@ const Login = () => {
                   name="password"
                   className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
                   placeholder="Password"
+                />
+                <button
+                  type="button"
+                  className="absolute right-0 top-0 mt-2 mr-2 text-gray-500"
+                  onClick={toggleShowPassword}
+                >
+                  {showPassword ? (
+                    <p>
+                      Hide
+                    </p>
+                  ) : (
+                    <p>
+                      Show
+                    </p>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="flex flex-col mb-6">
+              <label htmlFor="confirmPassword" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Confirm Password:</label>
+              <div className="relative">
+                <input
+                  id="confirmPassword"
+                  type={showPassword ? 'text' : 'password'}
+                  name="confirmPassword"
+                  className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                  placeholder="Confirm Password"
                 />
                 <button
                   type="button"
@@ -79,4 +105,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

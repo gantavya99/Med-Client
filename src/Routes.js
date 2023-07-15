@@ -7,6 +7,7 @@ import Cart from "./views/Cart/Cart";
 import Checkout from "./views/checkout/Checkout";
 import Success from "./views/Cart/Success";
 import Login from "./views/Login/Login";
+import SignUp from "./views/SignUp/SignUp";
 
 const MedPharmRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const MedPharmRoutes = () => {
         <Route path ="/checkout" element={<Checkout />}/>
         <Route path ="/success" element={<Success />}/>
         <Route path ="/login" element={<Login />}/>
+        <Route path ="/signUp" element={<SignUp />}/>
         </Routes>
         </Suspense>
     </div>
