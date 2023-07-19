@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import {login} from "../../store/authSlice";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
@@ -8,16 +8,20 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  
+  const isAuthenticated = useSelector((state)=>state.auth.isAuthenticated);
 
-  console.log(email);
-  console.log(password);
-
-  const handleLogin = () => {
-    dispatch(login({email, password}));
-    console.log();
+  const handleLogin = async () => {
+    try {
+      await dispatch(login({ email, password }));
+      // Only navigate to the home screen after successful login
+      navigate("/");
+    } catch (error) {
+      // Handle login error
+    }
   };
 
-
+  
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };

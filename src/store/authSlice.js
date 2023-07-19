@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { toast } from "react-hot-toast";
+const initialToken = localStorage.getItem('jwt token');
+
 const initialState = {
-  token: localStorage.getItem('jwt token') || null,
-  isAuthenticated: false,
+  token: initialToken,
+  isAuthenticated: !!initialToken, // Set to true if initialToken is truthy (token exists), false otherwise
   user: null,
 };
 
