@@ -33,18 +33,31 @@ export const login = createAsyncThunk('auth/login', async ({ email, password }) 
   }
 });
 
-export const register = createAsyncThunk('auth/register',async({email,password})=>{
-  try{
-      const response = await axios.post(
-        'https://med-server-production.up.railway.app/api/auth/login',
-        {email,password}
-      )
-      return response.data
-  }
-  catch(error){
+export const register = createAsyncThunk('auth/register', async ({ email, password }) => {
+  try {
+    const response = await axios.post(
+      'https://med-server-production.up.railway.app/api/auth/register', // Use the correct endpoint for registration
+      { email, password }
+    );
+
+    const { token, ...user } = response.data;
+    toast.success(`Registration Successful!`, { position: 'top-center' });
+    // The payload returned here will be automatically used as the fulfilled action payload
+    return { token, user };
+  } catch (error) {
+    if (error.response && error.response.data) {
+      const errorMessage = error.response.data;
+      // Handle the error here and display it or use it as needed
+      // For example:
+      toast.error(`Registration Failed: ${errorMessage}`, { position: 'top-center' });
+      // Throw the error to be handled in the rejected case
+      throw error;
+    }
+    // If there's an unexpected error or no error message from the server
     throw error;
   }
-})
+});
+
 
 const authSlice = createSlice({
   name: 'auth',

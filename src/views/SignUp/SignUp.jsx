@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {register} from "../../store/authSlice";
+import { register } from "../../store/authSlice";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-hot-toast";
 const SignUp = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    dispatch(register({email, password}));
-    console.log();
+  const handleSignUp = () => {
+    if (password === confirmPassword && password.length > 5) {
+      dispatch(register({ email, password }));
+    } else {
+      toast.error("Passwords don't match or the password length is less than 6 characters",{position:'top-center'});
+    }
   };
-
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const toggleShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (
@@ -28,107 +36,121 @@ const SignUp = () => {
           Login to your Account
         </div>
         <div className="mt-10">
-          
-            <div className="flex flex-col mb-6">
-              <label
-                htmlFor="email"
-                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-              >
-                E-Mail Address:
-              </label>
-              <div className="relative">
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
-                  placeholder="E-Mail Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
+          <div className="flex flex-col mb-6">
+            <label
+              htmlFor="email"
+              className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+            >
+              E-Mail Address:
+            </label>
+            <div className="relative">
+              <input
+                id="email"
+                type="email"
+                name="email"
+                className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                placeholder="E-Mail Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-            <div className="flex flex-col mb-6">
-              <label
-                htmlFor="password"
-                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-              >
-                Password:
-              </label>
-              <div className="relative">
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
-                  placeholder="Password"
-                />
-                <button
-                  type="button"
-                  className="absolute right-0 top-0 mt-2 mr-2 text-gray-500"
-                  onClick={toggleShowPassword}
-                >
-                  {showPassword ? <p>Hide</p> : <p>Show</p>}
-                </button>
-              </div>
-            </div>
-            <div className="flex flex-col mb-6">
-              <label
-                htmlFor="password"
-                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-              >
-                Confirm Password:
-              </label>
-              <div className="relative">
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
-                  placeholder="Password"
-                />
-                <button
-                  type="button"
-                  className="absolute right-0 top-0 mt-2 mr-2 text-gray-500"
-                  onClick={toggleShowPassword}
-                >
-                  {showPassword ? <p>Hide</p> : <p>Show</p>}
-                </button>
-              </div>
-            </div>
-
-            <div className="flex w-full">
+          </div>
+          <div className="flex flex-col mb-6">
+            <label
+              htmlFor="password"
+              className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+            >
+              Password:
+            </label>
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                placeholder="Password"
+              />
               <button
-                className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in"
-                onClick={handleLogin}
+                type="button"
+                className="absolute right-0 top-0 mt-2 mr-2 text-gray-500"
+                onClick={toggleShowPassword}
               >
-                <span className="mr-2 uppercase">SignUp</span>
-                <span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    {/* <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" /> */}
-                  </svg>
-                </span>
+                {showPassword ? <p>Hide</p> : <p>Show</p>}
+              </button>
+              {
+                password.length<6&&password.length>0?
+                  <p className="text-red-400 text-sm">
+                    Password length less than 6
+                  </p>
+                
+              :null}
+            </div>
+          </div>
+          <div className="flex flex-col mb-6">
+            <label
+              htmlFor="password"
+              className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+            >
+              Confirm Password:
+            </label>
+            <div className="relative">
+              <input
+                id="password"
+                type={showConfirmPassword ? "text" : "password"}
+                name="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                placeholder="Password"
+              />
+              <button
+                type="button"
+                className="absolute right-0 top-0 mt-2 mr-2 text-gray-500"
+                onClick={toggleShowConfirmPassword}
+              >
+                {showConfirmPassword ? <p>Hide</p> : <p>Show</p>}
               </button>
             </div>
-          
+            {/* checking both passowrd and confirmPassword if they are same */}
+            {password.length > 0 ? (
+              password === confirmPassword ? (
+                <p className="text-green-700 font-bold mt-2">Passwords match</p>
+              ) : (
+                <p className="text-red-600 font-bold mt-2">Passwords don't match!</p>
+              )
+            ) : null}
+          </div>
+
+          <div className="flex w-full">
+            <button
+              className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in"
+              onClick={handleSignUp}
+              disabled={password!=confirmPassword||password.length<0}
+            >
+              <span className="mr-2 uppercase">SignUp</span>
+              <span>
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  {/* <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" /> */}
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
-        <div onClick={()=>navigate("/login")} className="flex justify-center items-center mt-6 mb-2 cursor-pointer">
-        <a
-            
-            className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center"
-          >
+        <div
+          onClick={() => navigate("/login")}
+          className="flex justify-center items-center mt-6 mb-2 cursor-pointer"
+        >
+          <a className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center">
             <span>
               <svg
                 className="h-6 w-6"
