@@ -98,6 +98,7 @@ const Header = () => {
           <div className="hidden md:block cursor-pointer">
             <div className="ml-10 flex items-baseline space-x-4">
               <span
+                onClick={()=>navigate("/login")}
                 href="#"
                 className="text-black hover:text-[#10847e] px-3 py-2 rounded-md text-sm font-medium"
               >
