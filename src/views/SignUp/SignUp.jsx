@@ -13,9 +13,10 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     if (password === confirmPassword && password.length > 5) {
-      dispatch(register({ email, password }));
+      await dispatch(register({ email, password }));
+      navigate("/login")
     } else {
       toast.error("Passwords don't match or the password length is less than 6 characters",{position:'top-center'});
     }

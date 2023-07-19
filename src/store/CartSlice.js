@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
+import { storageLogic } from "./storageLogic";
 
 const initialState = {
-  cartItems: [],
+  cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };
