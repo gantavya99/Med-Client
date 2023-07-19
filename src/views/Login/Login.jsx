@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {login} from "../../store/authSlice";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   console.log(email);
   console.log(password);
@@ -98,9 +99,9 @@ const Login = () => {
             </div>
           
         </div>
-        <div className="flex justify-center items-center mt-6 mb-2">
+        <div onClick={()=>navigate("/signUp")} className="flex justify-center items-center mt-6 mb-2 cursor-pointer">
           <a
-            target="_blank"
+            
             className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center"
           >
             <span>
@@ -116,7 +117,7 @@ const Login = () => {
                 <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
               </svg>
             </span>
-            <span className="ml-2">Already have an account?</span>
+            <span className="ml-2">Create an Account</span>
           </a>
         </div>
       </div>
