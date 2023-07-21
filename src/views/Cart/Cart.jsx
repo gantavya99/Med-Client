@@ -159,7 +159,7 @@ const Cart = () => {
               <div className="subtotal">
                 <span>Subtotal</span>
                 <span className="amount">
-                  ${cart.cartTotalAmount<400?cart.cartTotalAmount + Number(value):cart.cartTotalAmount}
+                  ${cart.cartTotalAmount<400?cart.cartTotalAmount.toFixed(2) + Number(value):cart.cartTotalAmount.toFixed(2)}
                 </span>  
               </div>
               {/* <p>Taxes and shipping calculated at checkout</p> */}

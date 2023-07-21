@@ -6,22 +6,19 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Sidebar = () => {
-  const [selectedValue, setSelectedValue] = useState(() => {
-    return localStorage.getItem("selectedValue") || "1";
-  });
-
-  const handleButtonClick = () => {
-    window.location.reload();
-  };
-
   const navigate = useNavigate();
+  const { category } = useParams();
+
+  const [selectedValue, setSelectedValue] = useState(() => {
+    return localStorage.getItem("selectedValue") || category || "1"; // Use the URL parameter "category" as the initial value
+  });
 
   const handleRadioButtonClick = (value) => {
     setSelectedValue(value);
-    handleButtonClick();
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -42,7 +39,7 @@ const Sidebar = () => {
           <RangeSlider
             aria-label={["min", "max"]}
             colorScheme="green"
-            defaultValue={[10, 80]}
+            defaultValue={[0, 100]}
           >
             <RangeSliderTrack>
               <RangeSliderFilledTrack />
@@ -63,8 +60,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Cannabis and Hashish");
-                  handleButtonClick();
-                  
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
@@ -75,8 +71,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Benzos");
-                  handleButtonClick();
-                  
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
@@ -87,7 +82,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Dissociatives");
-                  handleButtonClick();
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
@@ -98,7 +93,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Opioids");
-                  handleButtonClick();
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
@@ -109,7 +104,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Stimulants");
-                  handleButtonClick();
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
@@ -120,7 +115,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Psychedelics");
-                  handleButtonClick();
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
@@ -131,7 +126,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Weight Loss");
-                  handleButtonClick();
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
@@ -142,7 +137,7 @@ const Sidebar = () => {
               <Radio
                 onClick={() => {
                   navigate("/products/Steroids");
-                  handleButtonClick();
+                  handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
