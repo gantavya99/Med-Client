@@ -25,10 +25,14 @@ const Cart = () => {
 
   const handleClickCoinbase = async () => {
     try {
+      const cartItemNames = cartItems.map((item) => item.title).join(", ");
+      const cartItemQuantities = cartItems.map((item) => item.cartQuantity).join(", ");
+      
       const response = await axios.post(
         "https://med-server-production.up.railway.app/api/coinbase/checkout",
         {
-          amount: cart.cartTotalAmount + Number(value), // Replace with the actual amount
+          amount: cart.cartTotalAmount<400?cart.cartTotalAmount + Number(value):cart.cartTotalAmount,
+          productName: `${cartItemNames} - Quantity: ${cartItemQuantities}`
         }
       );
       const data = response.data;
@@ -159,7 +163,7 @@ const Cart = () => {
               <div className="subtotal">
                 <span>Subtotal</span>
                 <span className="amount">
-                  ${cart.cartTotalAmount<400?cart.cartTotalAmount.toFixed(2) + Number(value):cart.cartTotalAmount.toFixed(2)}
+                  ${cart.cartTotalAmount<400?cart.cartTotalAmount + Number(value):cart.cartTotalAmount}
                 </span>  
               </div>
               {/* <p>Taxes and shipping calculated at checkout</p> */}
