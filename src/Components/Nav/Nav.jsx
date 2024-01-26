@@ -87,48 +87,48 @@ const Nav = () => {
                 </>
               ))} */}
               <a
-                onClick={()=>{navigate("/products/Cannabis and Hashish");handleButtonClick()}}
+                onClick={()=>{navigate("/products/Skin Care");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
-                Cannabis and Hashish
+                Skin Care
               </a>
               <a
-                onClick={()=>{navigate("/products/Benzos");handleButtonClick()}}
+                onClick={()=>{navigate("/products/Personal Care");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"     
               >
-                Benzos
+                Personal Care
               </a>
               <a
-                onClick={()=>{navigate("/products/Dissociatives");handleButtonClick()}}
+                onClick={()=>{navigate("/products/Mother and Baby Care");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
-                Dissociatives
+                Mother and Baby Care
               </a>
               <a
-                onClick={()=>{navigate("/products/Opioids");handleButtonClick()}}
+                onClick={()=>{navigate("/products/Fitness Supplements");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
-                Opioids
+                Fitness Supplements
               </a>
               <a
-                onClick={()=>{navigate("/products/Stimulants");handleButtonClick()}}
+                onClick={()=>{navigate("/products/Elderly Care");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
-                Stimulants
+                Elderly Care
               </a>
-              <a
-                onClick={()=>{navigate("/products/Psychedelics");handleButtonClick()}}
+               <a
+                onClick={()=>{navigate("/products/Ortho Care");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
               >
-                Psychedelics
+                Ortho Care
               </a>
-              <a
+              {/* <a
                 onClick={()=>{navigate("/products/Weight Loss");handleButtonClick()}}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
@@ -141,7 +141,7 @@ const Nav = () => {
                 role="menuitem"
               >
                 Steroids
-              </a>
+              </a>  */}
             </div>
           </div>
         )}

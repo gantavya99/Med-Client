@@ -1,37 +1,37 @@
 import { useNavigate } from "react-router-dom";
 const callouts = [
   {
-    name: 'Cannabis and Hashish',
-    imageSrc: 'https://media.istockphoto.com/id/1187851138/photo/edible-marijuana-for-chronic-pain-treatment-alternative-medicine-diet-and-legal-weed-concept.jpg?s=612x612&w=0&k=20&c=nMcPp19gUtzFZlZXSrGirlbYK1Ofw0msSSh0fl6Z7MU=', 
+    name: 'Skin Care',
+    imageSrc: 'https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2tpbiUyMGNhcmUlMjBwcm9kdWN0c3xlbnwwfHwwfHx8MA%3D%3D', 
   },
   {
-    name: 'Benzos',
-    imageSrc: 'https://media.istockphoto.com/id/644472852/photo/doctor-holding-medicine-valium.jpg?s=612x612&w=0&k=20&c=Iaj-qpJ17cEsCaSV1TDFQ1pnJMF0eWbyTEGvY4fu8pk=', 
+    name: 'Personal Care',
+    imageSrc: 'https://images.unsplash.com/photo-1601612628452-9e99ced43524?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uYWwlMjBjYXJlfGVufDB8fDB8fHww', 
   },
   {
-    name: 'Dissociatives',
-    imageSrc: 'https://media.istockphoto.com/id/1367764186/photo/cooked-heroin-drugs-and-injection-syringe.jpg?s=612x612&w=0&k=20&c=STVpISvZpE-wFBOou6eItFoahjrZ8R9Zrx6PYPMGOTE=', 
+    name: 'Mother and Baby Care',
+    imageSrc: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhYnl8ZW58MHx8MHx8fDA%3D', 
   },
   {
-    name: 'Opioids',
-    imageSrc: 'https://media.istockphoto.com/id/1316346360/photo/oxycodone-opioid-tablets-bottle-and-label-in-extreme-close-up-for-court-battle-in-wv.jpg?s=612x612&w=0&k=20&c=1AGXAAkjxVXb5TaVbN_7MrZKKekuCnXFK-Rg9drKieQ=', 
+    name: 'Fitness Supplements',
+    imageSrc: 'https://images.unsplash.com/photo-1558017487-06bf9f82613a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zml0bmVzcyUyMHN1cHBsZW1lbnRzfGVufDB8fDB8fHww', 
   },
   {
-    name: 'Stimulants',
-    imageSrc: 'https://media.istockphoto.com/id/1216315320/photo/junkie-is-using-drugs-using-heroin-in-the-room.jpg?s=612x612&w=0&k=20&c=Kh3nFTTCx54xAS5L8QfKqz18hzEUQu9bP4faRTDxcvg=', 
+    name: 'Elderly Care',
+    imageSrc: 'https://images.unsplash.com/photo-1593491205049-7f032d28cf5c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
   },
   {
-    name: 'Psychedelics',
-    imageSrc: 'https://media.istockphoto.com/id/1034229138/photo/fly-agaric-growing-in-a-forest.jpg?s=612x612&w=0&k=20&c=4IvVwM3nkwH3xjEGXC5kuIUScborf1g8ah6ez-whd_o=', 
+    name: 'Ortho Care',
+    imageSrc: 'https://images.unsplash.com/photo-1597764690523-15bea4c581c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3J0aG9wZWRpY3xlbnwwfHwwfHx8MA%3D%3D', 
   },
-  {
-    name: 'Weight Loss',
-    imageSrc: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/320/320646/weight-loss-and-diet-pills-surrounded-by-measuring-tape.jpg', 
-  },
-  {
-    name: 'Steroids',
-    imageSrc: 'https://media.istockphoto.com/id/1250471462/photo/bottle-of-steroid-injection-with-a-syringe-on-black-table-and-stainless-steel-background.jpg?s=612x612&w=0&k=20&c=WQW8QSoVjrS7-C3SJ1_sX9xjx9VfcDKskdzl7o9gn50=', 
-  },
+  // {
+  //   name: 'Weight Loss',
+  //   imageSrc: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/320/320646/weight-loss-and-diet-pills-surrounded-by-measuring-tape.jpg', 
+  // },
+  // {
+  //   name: 'Steroids',
+  //   imageSrc: 'https://media.istockphoto.com/id/1250471462/photo/bottle-of-steroid-injection-with-a-syringe-on-black-table-and-stainless-steel-background.jpg?s=612x612&w=0&k=20&c=WQW8QSoVjrS7-C3SJ1_sX9xjx9VfcDKskdzl7o9gn50=', 
+  // },
   
 ]
 
