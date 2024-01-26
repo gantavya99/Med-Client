@@ -24,13 +24,13 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-2">Products</h3>
             <nav className="flex flex-col sm:flex-row">
               <Link href="/" className="text-gray-400 hover:text-[#10847e] py-1 sm:py-0 sm:mr-4">
-                Opioids
+                Skin Care
               </Link>
               <Link href="/" className="text-gray-400 hover:text-[#10847e] py-1 sm:py-0 sm:mr-4">
-                Psychedelics
+                Fitness Supplements
               </Link>
               <Link href="/" className="text-gray-400 hover:text-[#10847e] py-1 sm:py-0 sm:mr-4">
-              Cannabinoids
+              Baby Products
               </Link>
               <Link href="/" className="text-gray-400 hover:text-[#10847e] py-1 sm:py-0 sm:mr-4">
                 More...

@@ -18,7 +18,7 @@ const Question = () => {
           <h2>
             <AccordionButton _expanded={{ bg: "#10847e", color: "white" }}>
               <Box as="span" flex="1" textAlign="left">
-                Do you deliver across America?
+                Do you deliver across India?
               </Box>
               <AccordionIcon />
             </AccordionButton>

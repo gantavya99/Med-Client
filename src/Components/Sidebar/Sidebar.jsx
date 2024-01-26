@@ -48,8 +48,8 @@ const Sidebar = () => {
             <RangeSliderThumb index={1} />
           </RangeSlider>
           <div className="flex justify-between">
-            <p className="font-semibold">$0</p>
-            <p className="font-semibold">$1000</p>
+            <p className="font-semibold">Rs 0</p>
+            <p className="font-semibold">Rs 1000</p>
           </div>
         </div>
 
@@ -59,91 +59,69 @@ const Sidebar = () => {
             <Stack spacing={1} direction="column">
               <Radio
                 onClick={() => {
-                  navigate("/products/Cannabis and Hashish");
+                  navigate("/products/Skin Care");
                   handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
                 value="1"
               >
-                Cannabis and Hashish
+                Skin Care
               </Radio>
               <Radio
                 onClick={() => {
-                  navigate("/products/Benzos");
+                  navigate("/products/Personal Care");
                   handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
                 value="2"
               >
-                Benzos
+                Personal Care
               </Radio>
               <Radio
                 onClick={() => {
-                  navigate("/products/Dissociatives");
+                  navigate("/products/Mother and Baby Care");
                   handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
                 value="3"
               >
-                Dissociatives
+                Mother and Baby Care
               </Radio>
               <Radio
                 onClick={() => {
-                  navigate("/products/Opioids");
+                  navigate("/products/Fitness Supplements");
                   handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
                 value="4"
               >
-                Opiods
+                Fitness Supplements
               </Radio>
               <Radio
                 onClick={() => {
-                  navigate("/products/Stimulants");
+                  navigate("/products/Elderly Care");
                   handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
                 value="5"
               >
-                Stimulants
+                Elderly Care
               </Radio>
               <Radio
                 onClick={() => {
-                  navigate("/products/Psychedelics");
+                  navigate("/products/Ortho Care");
                   handleRadioButtonClick();
                 }}
                 className="my-2"
                 colorScheme="green"
                 value="6"
               >
-                Psychedelics
-              </Radio>
-              <Radio
-                onClick={() => {
-                  navigate("/products/Weight Loss");
-                  handleRadioButtonClick();
-                }}
-                className="my-2"
-                colorScheme="green"
-                value="7"
-              >
-                Weight Loss
-              </Radio>
-              <Radio
-                onClick={() => {
-                  navigate("/products/Steroids");
-                  handleRadioButtonClick();
-                }}
-                className="my-2"
-                colorScheme="green"
-                value="8"
-              >
-                Steroids
+                Ortho Care
               </Radio>
             </Stack>
           </RadioGroup>

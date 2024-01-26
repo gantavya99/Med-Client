@@ -55,17 +55,22 @@ const Product = ({
   }
 
   return (
-    <div
-      className="cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden 
-    shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105"
-    >
-      <img
-        className="w-full h-36 object-cover border-b border-gray-200 hover:opacity-90 transition-opacity"
-        src={imageUrl}
-        onClick={handleClick}
-      />
+    <div className="cursor-pointer w-52 m-7 bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+      <div className="h-48 overflow-hidden">
+        <img
+          className="w-full h-full object-contain border-b border-gray-200 hover:opacity-90 transition-opacity"
+          src={imageUrl}
+          onClick={handleClick}
+        />
+      </div>
       <div className="p-2">
-        <h3 onClick={handleClick} className="text-lg font-medium">{title}</h3>
+        <h3
+          onClick={handleClick}
+          className="text-lg font-medium line-clamp-6"
+          style={{ height: "3em" }}
+        >
+          {title}
+        </h3>
         <p className="text-xs float-right text-gray-400">({category})</p>
         <div className="flex mt-2">
           <div>
